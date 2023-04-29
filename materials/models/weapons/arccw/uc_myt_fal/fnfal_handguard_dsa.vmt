@@ -1,0 +1,16 @@
+"VertexLitGeneric"
+{
+	"$basetexture"			"models\weapons\arccw\uc_myt_fal\fnfal_handguard_dsa"
+	"$bumpmap" 			"models\weapons\arccw\uc_myt_fal\fnfal_handguard_dsa_n"
+
+//	"$halflambert" 					"1"
+	"$phong"                        "1"	
+	"$phongalbedotint"              "1"	
+	"$phongexponent"                "16"	
+	"$phongboost"                   "30"
+	"$phongfresnelranges"           "[0.75 1.5 3]"
+
+	"$basetexturealphaenvmapmask"	"1"
+	"$envmaptint"			"[0.025 0.025 0.025]"
+	"$envmapfresnel"			"0.5"		
+}
