@@ -229,150 +229,7 @@ SWEP.CustomizeAng = Angle(8, 30, 15)
 SWEP.BarrelLength = 24
 
 SWEP.AttachmentElements = {
-    ["ur_g3_skin_wood"] = { VMSkin = 1 },
-    ["ur_g3_skin_olive"] = { VMSkin = 2 },
-    ["ur_g3_skin_tan"] = { VMSkin = 3 },
-    ["ur_g3_skin_custom"] = { VMSkin = 4 },
 
-    ["stock_g3_collapsible"] = {
-        VMBodygroups = {
-            {ind = 5, bg = 2},
-        }
-    },
-    ["stock_g3_collapsed"] = {
-        VMBodygroups = {
-            {ind = 5, bg = 3},
-        }
-    },
-    ["ur_g3_stock_psg"] = {
-        VMBodygroups = {
-            {ind = 5, bg = 4},
-        }
-    },
-    ["ur_g3_stock_sg"] = {
-        VMBodygroups = {
-            {ind = 5, bg = 1},
-        }
-    },
-    ["ur_g3_stock_rucar"] = {
-        VMBodygroups = {
-            {ind = 5, bg = 5},
-        }
-    },
-
-    ["ur_g3_rec_hk33"] = {
-        VMBodygroups = {
-            {ind = 0, bg = 1},
-            {ind = 3, bg = 1},
-            {ind = 4, bg = 4},
-        },
-    },
-    ["ur_g3_rec_psg"] = {
-        VMBodygroups = {
-            {ind = 1, bg = 1},
-            {ind = 3, bg = 2},
-        },
-        TrueNameChange = "PSG1",
-    },
-
-    ["ur_g3_mag_10"] = {
-        VMBodygroups = {
-            {ind = 4, bg = 1},
-        }
-    },
-    ["ur_g3_mag_50"] = {
-        VMBodygroups = {
-            {ind = 4, bg = 2},
-        }
-    },
-    ["ur_g3_mag_20_556"] = {
-        VMBodygroups = {
-            {ind = 4, bg = 3},
-        }
-    },
-    ["ur_g3_mag_40_556"] = {
-        VMBodygroups = {
-            {ind = 4, bg = 5},
-        }
-    },
-
-    ["ur_g3_barrel_12"] = {
-        VMBodygroups = {
-            {ind = 2, bg = 1},
-        },
-        AttPosMods = {
-            [5] = {
-                vpos = Vector(0, 0.06, 18),
-                vang = Angle(90, 0, -90),
-            },
-            [7] = {
-                vpos = Vector(-0.94, 0.2, 14),
-                vang = Angle(90, 0, 180),
-            },
-        }
-    },
-    ["ur_g3_barrel_15"] = {
-        VMBodygroups = {
-            {ind = 2, bg = 4},
-        },
-        AttPosMods = {
-            [5] = {
-                vpos = Vector(0, 0.06, 20.5),
-                vang = Angle(90, 0, -90),
-            },
-            [7] = {
-                vpos = Vector(-0.94, 0.2, 14),
-                vang = Angle(90, 0, 180),
-            },
-        }
-    },
-    ["ur_g3_barrel_8"] = {
-        VMBodygroups = {
-            {ind = 2, bg = 2},
-        },
-        AttPosMods = {
-            [5] = {
-                vpos = Vector(0, 0.06, 14),
-                vang = Angle(90, 0, -90),
-            },
-            [7] = {
-                vpos = Vector(-0.94, 0.2, 11),
-                vang = Angle(90, 0, 180),
-            },
-        }
-    },
-    ["ur_g3_barrel_26"] = {
-        VMBodygroups = {
-            {ind = 2, bg = 3},
-        },
-        AttPosMods = {
-            [5] = {
-                vpos = Vector(0, 0.06, 29.7),
-                vang = Angle(90, 0, -90),
-            },
-            [7] = {
-                vpos = Vector(-0.94, 0.2, 17),
-                vang = Angle(90, 0, 180),
-            },
-        }
-    },
-
-    ["ur_g3_hg_slim"] = {
-        AttPosMods = {
-            [6] = {
-                vpos = Vector(0, 0.66, 9),
-                vang = Angle(90, 0, -90),
-            },
-        }
-    },
-    ["ur_g3_hg_pica"] = {
-        AttPosMods = {
-            [6] = {
-                vpos = Vector(0, 0.75, 9.2),
-                vang = Angle(90, 0, -90),
-            },
-        }
-    },
 }
 
 
@@ -558,7 +415,7 @@ SWEP.Animations = {
         },
     },
     ["fire"] = {
-        Source = {"fire_01","fire_02","fire_03"},
+        Source = {"fire"},
         ShellEjectAt = 0,
         SoundTable = {{ s = {path .. "mech-01.ogg", path .. "mech-02.ogg", path .. "mech-03.ogg", path .. "mech-04.ogg", path .. "mech-05.ogg", path .. "mech-06.ogg"}, t = 0 }},
     },
@@ -719,8 +576,9 @@ SWEP.Animations = {
 SWEP.Hook_SelectInsertAnimation = function(wep, data)
     local insertAmt = math.min(wep.Primary.ClipSize + wep:GetChamberSize() - wep:Clip1(), wep:GetOwner():GetAmmoCount(wep.Primary.Ammo), 10)
     local anim = "sgreload_insert" .. insertAmt
-
+	
     return {count = insertAmt, anim = anim, empty = false}
+
 end
 
 -- SWEP.Hook_Think = ArcCW.UC.ADSReload
