@@ -4,22 +4,21 @@ SWEP.Category = "ArcCW - Urban Coalition" -- edit this if you like
 SWEP.UC_CategoryPack = "5Urban One-offs"
 SWEP.AdminOnly = false
 
-SWEP.PrintName = "L-90"
+SWEP.PrintName = "Aurolaroix C1"
 SWEP.TrueName = "FAL"
 
 SWEP.Trivia_Class = "Battle Rifle"
-SWEP.Trivia_Desc = [[Postwar battle rifle produced in the early stages of the Cold War. Nicknamed the Right Arm of the Free World, it is one of the most widely used rifles ever, having armed more than 90 countries in numbers to rival the AKM. However, it is frequently sidelined in pop culture for its obscurity in major conflicts.
-
-Powerful and comparatively light, but the muzzle rises in proportion. To control such a powerful kick at 700 RPM is a challenge to say the least.]]
-SWEP.Trivia_Manufacturer = "Usine d'Armes Royale"
+SWEP.Trivia_Desc = [[Shipped back from Départment du Nord, a land of constant snowstorm prohibits the use of conventional magazine. Take either 10 or 5 round load to fill up this machine.]]
+SWEP.Trivia_Manufacturer = [[Héristal van Hoog-Zert [Département du Nord] ]]
 SWEP.Trivia_Calibre = "7.62x51mm NATO"
 SWEP.Trivia_Mechanism = "Gas-Operated Tilting Bolt"
-SWEP.Trivia_Country = "Belgium"
+SWEP.Trivia_Country = "Canada" -- skull emoji
 SWEP.Trivia_Year = 1953
 
 if GetConVar("arccw_truenames"):GetBool() then
     SWEP.PrintName = SWEP.TrueName
-    SWEP.Trivia_Manufacturer = "Fabrique Nationale Herstal"
+    SWEP.Trivia_Manufacturer = "FN Herstal"
+    SWEP.Trivia_Country = "Belgium"
 end
 
 SWEP.Slot = 2
@@ -31,7 +30,7 @@ SWEP.ViewModel = "models/weapons/arccw/c_uc_myt_fal.mdl"
 SWEP.WorldModel = "models/weapons/arccw/c_uc_myt_fal.mdl"
 SWEP.ViewModelFOV = 70
 
-SWEP.DefaultBodygroups = "000000000000"
+SWEP.DefaultBodygroups = "000110000000"
 
 SWEP.ShotgunReload = true
 SWEP.HybridReload = true
@@ -662,6 +661,45 @@ SWEP.Animations = {
             {s = {common .. "cloth_2.ogg", common .. "cloth_3.ogg", common .. "cloth_4.ogg", common .. "cloth_6.ogg", common .. "rattle.ogg"}, t = 0.05, v = 0.5},
         },
     },
+    ["sgreload_insert1"] = {
+        Source = "sgreload_insert",
+        MinProgress = 0.24,
+        TPAnim = ACT_HL2MP_GESTURE_RELOAD_SHOTGUN,
+        TPAnimStartTime = 0.3,
+        LHIK = true,
+        LHIKIn = 0,
+        LHIKOut = 0,
+        SoundTable = {
+            {s = shellin,  t = 0},
+            {s = {common .. "cloth_2.ogg", common .. "cloth_3.ogg", common .. "cloth_4.ogg", common .. "cloth_6.ogg", common .. "rattle.ogg"}, t = 0.05, v = 0.5},
+        },
+    },
+    ["sgreload_insert5"] = {
+        Source = "sgreload_insert_5",
+        MinProgress = 0.24,
+        TPAnim = ACT_HL2MP_GESTURE_RELOAD_SHOTGUN,
+        TPAnimStartTime = 0.3,
+        LHIK = true,
+        LHIKIn = 0,
+        LHIKOut = 0,
+        SoundTable = {
+            {s = shellin,  t = 0},
+            {s = {common .. "cloth_2.ogg", common .. "cloth_3.ogg", common .. "cloth_4.ogg", common .. "cloth_6.ogg", common .. "rattle.ogg"}, t = 0.05, v = 0.5},
+        },
+    },
+    ["sgreload_insert10"] = {
+        Source = "sgreload_insert_10",
+        MinProgress = 0.24,
+        TPAnim = ACT_HL2MP_GESTURE_RELOAD_SHOTGUN,
+        TPAnimStartTime = 0.3,
+        LHIK = true,
+        LHIKIn = 0,
+        LHIKOut = 0,
+        SoundTable = {
+            {s = shellin,  t = 0},
+            {s = {common .. "cloth_2.ogg", common .. "cloth_3.ogg", common .. "cloth_4.ogg", common .. "cloth_6.ogg", common .. "rattle.ogg"}, t = 0.05, v = 0.5},
+        },
+    },
     ["sgreload_finish"] = {
         Source = "sgreload_finish",
         LHIK = true,
@@ -678,29 +716,11 @@ SWEP.Animations = {
     },
 }
 
+SWEP.Hook_SelectInsertAnimation = function(wep, data)
+    local insertAmt = math.min(wep.Primary.ClipSize + wep:GetChamberSize() - wep:Clip1(), wep:GetOwner():GetAmmoCount(wep.Primary.Ammo), 10)
+    local anim = "sgreload_insert" .. insertAmt
+
+    return {count = insertAmt, anim = anim, empty = false}
+end
+
 -- SWEP.Hook_Think = ArcCW.UC.ADSReload
-
-SWEP.Hook_Think = function(wep) 
-    local vm = wep:GetOwner():GetViewModel()
-    
-    vm:SetPoseParameter("short", wep.Attachments[2].Installed == "ur_g3_barrel_8" and 1 or 0)
-
-    ArcCW.UC.ADSReload(wep)
-end
-
-SWEP.Hook_SelectReloadAnimation = function(wep, anim) -- not in atts cause _scope wont work
-    local seq = anim
-
-    if wep.Attachments[9].Installed == "ur_g3_mag_50" then
-        seq = seq .. "_50rnd"
-    elseif wep.Attachments[9].Installed == "ur_g3_mag_10" then
-        seq = seq .. "_10rnd"
-    elseif wep.Attachments[9].Installed == "ur_g3_mag_40_556" or wep.Attachments[3].Installed == "ur_g3_rec_hk33" and !wep.Attachments[9].Installed then
-        seq = seq .. "_30rnd"
-    end
-    if anim == "reload_empty" and wep.Attachments[1].Installed then
-        seq = seq .. "_scope"
-    end
-
-    return seq
-end
