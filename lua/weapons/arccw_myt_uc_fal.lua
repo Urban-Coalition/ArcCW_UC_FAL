@@ -229,7 +229,7 @@ SWEP.CustomizeAng = Angle(8, 30, 15)
 SWEP.BarrelLength = 24
 
 SWEP.AttachmentElements = {
-
+	["stock_tube"] = { VMBodygroups = { {ind = 7, bg = 4}, }, },
 }
 
 
@@ -315,9 +315,9 @@ SWEP.Attachments = {
     },
     {
         PrintName = "Stock",
-        Slot = "ur_g3_stock",
-        DefaultAttName = "Factory Stock",
-        DefaultAttIcon = Material("entities/att/acwatt_ud_m16_stock_default.png", "smooth mips"),
+        Slot = {"uc_myt_fal_stock"},
+        DefaultAttName = "Standard Stock",
+        MergeSlots = {16},
     },
     {
         PrintName = "Magazine",
@@ -367,11 +367,19 @@ SWEP.Attachments = {
         Hidden = true,
         InstalledEles = {"mount_underbarrel"},
     },
+	
     {
-        PrintName = "Furniture",
-        Slot = "ur_g3_skin",
-        DefaultAttName = "Gray"
-    }
+        PrintName = "Tube Stock Adaptor",
+        Slot = {"go_stock"},
+        -- GSO support
+        Hidden = true,
+        InstalledEles = {"stock_tube"},
+        Bone = "W_Main",
+        Offset = {
+            vpos = Vector(0, 0.5, -10.5),
+            vang = Angle(90, 0, -90),
+        },
+    },
 
 }
 
@@ -518,21 +526,9 @@ SWEP.Animations = {
             {s = {common .. "cloth_2.ogg", common .. "cloth_3.ogg", common .. "cloth_4.ogg", common .. "cloth_6.ogg", common .. "rattle.ogg"}, t = 0.05, v = 0.5},
         },
     },
-    ["sgreload_insert1"] = {
-        Source = "sgreload_insert",
-        MinProgress = 0.24,
-        TPAnim = ACT_HL2MP_GESTURE_RELOAD_SHOTGUN,
-        TPAnimStartTime = 0.3,
-        LHIK = true,
-        LHIKIn = 0,
-        LHIKOut = 0,
-        SoundTable = {
-            {s = shellin,  t = 0},
-            {s = {common .. "cloth_2.ogg", common .. "cloth_3.ogg", common .. "cloth_4.ogg", common .. "cloth_6.ogg", common .. "rattle.ogg"}, t = 0.05, v = 0.5},
-        },
-    },
-    ["sgreload_insert5"] = {
+    ["sgreload_insert_5"] = {
         Source = "sgreload_insert_5",
+		RestoreAmmo = 5,
         MinProgress = 0.24,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_SHOTGUN,
         TPAnimStartTime = 0.3,
@@ -544,8 +540,9 @@ SWEP.Animations = {
             {s = {common .. "cloth_2.ogg", common .. "cloth_3.ogg", common .. "cloth_4.ogg", common .. "cloth_6.ogg", common .. "rattle.ogg"}, t = 0.05, v = 0.5},
         },
     },
-    ["sgreload_insert10"] = {
+    ["sgreload_insert_10"] = {
         Source = "sgreload_insert_10",
+		RestoreAmmo = 10,
         MinProgress = 0.24,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_SHOTGUN,
         TPAnimStartTime = 0.3,
@@ -573,12 +570,14 @@ SWEP.Animations = {
     },
 }
 
-SWEP.Hook_SelectInsertAnimation = function(wep, data)
-    local insertAmt = math.min(wep.Primary.ClipSize + wep:GetChamberSize() - wep:Clip1(), wep:GetOwner():GetAmmoCount(wep.Primary.Ammo), 10)
-    local anim = "sgreload_insert" .. insertAmt
-	
-    return {count = insertAmt, anim = anim, empty = false}
+SWEP.Hook_TranslateAnimation = function(wep,data,anim)
+	local cur_ammo = wep.Primary.ClipSize + wep:GetChamberSize() - wep:Clip1()
 
+    if wep:GetOwner():GetAmmoCount(wep.Primary.Ammo) >= 10 and anim == "sgreload_insert" then
+        return "sgreload_insert_10"
+    elseif wep:GetOwner():GetAmmoCount(wep.Primary.Ammo) >= 5 and anim == "sgreload_insert" then
+        return "sgreload_insert_5"
+    end
 end
 
 -- SWEP.Hook_Think = ArcCW.UC.ADSReload
