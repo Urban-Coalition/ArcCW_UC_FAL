@@ -251,6 +251,7 @@ SWEP.AttachmentElements = {
 	["stock_tube"] = { VMBodygroups = { {ind = 7, bg = 4}, }, },
 	["stock_fold"] = { VMBodygroups = { {ind = 7, bg = 1}, }, },
 	["stock_foldf"] = { VMBodygroups = { {ind = 7, bg = 2}, }, },
+	["stock_imballs"] = { VMBodygroups = { {ind = 7, bg = 3}, }, },
 
 	["conv_556"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 3}, }, },
 	["x_40"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 2}, }, },

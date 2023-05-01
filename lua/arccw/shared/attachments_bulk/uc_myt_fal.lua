@@ -101,9 +101,6 @@ att.Desc_Neutrals = {}
 att.Slot = "uc_myt_fal_mag"
 att.SortOrder = 40 + 308
 
-att.Override_ShotgunReload = false
-att.Override_HybridReload = false
-
 att.AutoStats = true
 att.HideIfBlocked = true
 
@@ -111,17 +108,16 @@ att.Override_ClipSize = 40
 
 att.ActivateElements = {"x_40"}
 
-att.Hook_SelectReloadAnimation = function(wep, anim)
-    return anim .. "_40"
-end
-
 att.Hook_TranslateAnimation = function(wep, anim)
-    return anim .. "_40"
+    if anim == "reload_empty" then
+        return "reload_empty_40"
+    end
 end
 
 ArcCW.LoadAttachmentType(att, "uc_myt_fal_x_40")
-
--- Stocks ---------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
+-- Stocks -----------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
 local att = {}
 
 att.PrintName = "Folding Stock"
@@ -163,12 +159,39 @@ att.ToggleStats = {
 }
 
 ArcCW.LoadAttachmentType(att, "uc_myt_fal_stock_fold")
-
-
-
+---------------------------------------------------------------------------------------------------------------------
 local att = {}
 
--- Barrels ---------------------------------------------------------
+att.PrintName = "CQC Stock"
+att.Icon = Material("entities/att/ue_fal/s_imbel.png", "smooth mips")
+att.Description = "Guh?"
+att.Desc_Pros = {
+}
+att.Desc_Cons = {
+}
+att.Desc_Neutrals = {
+}
+att.Ignore = false
+att.Slot = "uc_myt_fal_stock"
+att.ActivateElements = {"stock_imballs"}
+
+att.AutoStats = true
+att.SortOrder = 4
+
+att.Add_BarrelLength = 0
+att.Mult_Sway = 1.5
+att.Mult_HipDispersion = 1.25
+att.Mult_MoveDispersion = 1.2
+att.Mult_SightTime = 0.75
+att.Mult_Recoil = 1.25
+att.Mult_Sway = 1.5
+
+ArcCW.LoadAttachmentType(att, "uc_myt_fal_stock_imballs")
+
+local att = {}
+---------------------------------------------------------------------------------------------------------------------
+-- Barrels ----------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
 att.PrintName = "20\" Wood Barrel"
 att.Icon = Material("entities/att/ue_scar/u_rail.png", "smooth mips")
 att.Description = "Extended barrel with added wood. Bayonetta"
@@ -198,7 +221,7 @@ att.Mult_PhysBulletMuzzleVelocity = 0.8
 
 att.ActivateElements = {"hg_wood"}
 ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_l")
-
+---------------------------------------------------------------------------------------------------------------------
 local att = {}
 
 att.PrintName = "10\" PARA Barrel"
@@ -231,7 +254,7 @@ att.Mult_PhysBulletMuzzleVelocity = 0.65
 
 att.ActivateElements = {"hg_s", "hg_short"}
 ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_s")
-
+---------------------------------------------------------------------------------------------------------------------
 local att = {}
 
 att.PrintName = "6.5\" DSA Barrel"
@@ -270,7 +293,7 @@ ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_xs")
 
 local att = {}
 
-att.PrintName = "Flat Grip"
+att.PrintName = "Polymer Grip"
 att.Icon = Material("entities/att/acwatt_ud_m16_stock_608.png", "smooth mips")
 att.Description = "you cant even fucking see it"
 att.Desc_Pros = {
@@ -284,22 +307,4 @@ att.Slot = "uc_myt_scar_grip"
 att.AutoStats = true
 
 att.ActivateElements = {"grip_flat"}
-ArcCW.LoadAttachmentType(att, "uc_myt_scar_grip_flat")
-
-local att = {}
-
-att.PrintName = "Skeleton Grip"
-att.Icon = Material("entities/att/acwatt_ud_m16_stock_608.png", "smooth mips")
-att.Description = "Hollow Knight Silksong"
-att.Desc_Pros = {
-}
-att.Desc_Cons = {
-}
-att.Desc_Neutrals = {
-}
-att.Slot = "uc_myt_scar_grip"
-
-att.AutoStats = true
-
-att.ActivateElements = {"grip_hollow"}
-ArcCW.LoadAttachmentType(att, "uc_myt_scar_grip_ske")
+ArcCW.LoadAttachmentType(att, "uc_myt_fal_grip_imbel")
