@@ -258,7 +258,11 @@ SWEP.AttachmentElements = {
 	["stock_foldf"] = { VMBodygroups = { {ind = 7, bg = 2}, }, },
 	["stock_imballs"] = { VMBodygroups = { {ind = 7, bg = 3}, }, },
 
-	["conv_556"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 3}, }, },
+	["conv_556"] = {
+	NameChange = "Relicosseur I2",
+	TrueNameChange = "IMBEL-A2",
+	VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 3}, },
+	},
 	["x_40"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 2}, }, },
 
 	["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5} }, },
@@ -402,9 +406,9 @@ SWEP.Attachments = {
     },
     {	--15--
         PrintName = "Optic Sniper",
-        InstalledEles = {"o_rail"},
+        InstalledEles = {"o_rail", "blockstrip"},
         Hidden = true,
-        Slot = {"sniper_optic"},
+        Slot = {"optic_sniper"}, -- fuck all optics use this :<
         Bone = "W_Main",
         VMScale = Vector(1, 1, 1),
         Offset = {
@@ -438,6 +442,22 @@ SWEP.Animations = {
             {s = path .. "rattle_3.ogg", t = 0.2},
         },
     },
+    ["ready"] = {
+        Source = "deploy",
+        LHIK = true,
+        LHIKIn = 0.3,
+        LHIKEaseIn = 0.4,
+        LHIKEaseOut = 0.15,
+        LHIKOut = 0.4,
+        SoundTable = {
+            {s = common .. "raise.ogg", t = 0},
+            {s = common .. "rattle.ogg", t = 0.2 + 5/40},
+            {s = path .. "chpull.ogg",   t = 18/40},
+            {s = common .. "cloth_4.ogg",  t = 0.5 + 5/40},
+            {s = path .. "chrelease.ogg",  t = 32/40},
+        },
+        ProcDraw = false,
+    },	
     ["holster"] = {
         Source = "holster",
         LHIK = false,
@@ -682,7 +702,7 @@ SWEP.Animations = {
 
 
 SWEP.Hook_SelectInsertAnimation = function(wep, data)
-    local insertAmt = math.min(wep.Primary.ClipSize + wep:GetChamberSize() - wep:Clip1(), wep:GetOwner():GetAmmoCount(wep.Primary.Ammo), 20)
+    local insertAmt = math.min(wep.Primary.ClipSize + wep:GetChamberSize() - wep:Clip1(), wep:GetOwner():GetAmmoCount(wep.Primary.Ammo), 20) -- that 20 probably doesnt mean anything
     local anim = "sgreload_insert_" .. insertAmt
 
 	if !wep.Attachments[15].Installed and insertAmt >= 10 then

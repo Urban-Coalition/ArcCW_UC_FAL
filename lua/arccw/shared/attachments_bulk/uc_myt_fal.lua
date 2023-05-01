@@ -94,7 +94,7 @@ att.PrintName = "C2A1 40-Round Mag"
 att.AbbrevName = "40-Round .308 Mag"
 
 att.Icon = Material("entities/att/ue_fal/r_ex.png", "smooth mips")
-att.Description = "The South Division did not need such stopping power of a full blown cartridge, instead opted for a more conventional magazine in an intermediate calibre."
+att.Description = "Extended magazine for machine gunners."
 att.Desc_Pros = {}
 att.Desc_Cons = {}
 att.Desc_Neutrals = {}
