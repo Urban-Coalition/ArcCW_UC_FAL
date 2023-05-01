@@ -122,12 +122,13 @@ SWEP.SightedSpeedMult = 0.75
 SWEP.SightTime = 0.5
 SWEP.ShootSpeedMult = 0.75
 
-local path = ")^weapons/arccw_ur/g3/"
-local path1 = ")^weapons/arccw_ur/mp5/"
-local common = ")^/arccw_uc/common/"
-local rottle = {common .. "cloth_1.ogg", common .. "cloth_2.ogg", common .. "cloth_3.ogg", common .. "cloth_4.ogg", common .. "cloth_6.ogg", common .. "rattle.ogg"}
+local path = ")^weapons/uc_fal/"
+local common = ")/arccw_uc/common/"
+local rottle = {common .. "cloth_1.ogg", common .. "cloth_2.ogg", common .. "cloth_3.ogg", common .. "cloth_4.ogg", common .. "cloth_5.ogg", common .. "cloth_6.ogg", common .. "rattle.ogg"}
+local mech = {path .. "mech-01.ogg", path .. "mech-02.ogg", path .. "mech-03.ogg", path .. "mech-04.ogg", path .. "mech-05.ogg", path .. "mech-06.ogg"}
 local ratel = {common .. "rattle1.ogg", common .. "rattle2.ogg", common .. "rattle3.ogg"}
---SWEP.FirstShootSound = path .. "fire_first.ogg"
+local rutle = {common .. "movement-rifle-01.ogg", common .. "movement-rifle-02.ogg", common .. "movement-rifle-03.ogg", common .. "movement-rifle-04.ogg"}
+local magdrop = {common .. "rifle_magdrop_1.ogg", common .. "rifle_magdrop_2.ogg", common .. "rifle_magdrop_3.ogg", common .. "rifle_magdrop_4.ogg"}
 
 SWEP.ShootSound = {
     path .. "fire-01.ogg",
@@ -149,27 +150,43 @@ SWEP.DistantShootSound = nil
 SWEP.DistantShootSoundSilenced = nil
 SWEP.ShootDrySound = path .. "dryfire.ogg"
 
+local tail = ")/arccw_uc/common/308/"
+
 SWEP.DistantShootSoundOutdoors = {
-    path .. "fire-dist-01.ogg",
-    path .. "fire-dist-02.ogg",
-    path .. "fire-dist-03.ogg",
-    path .. "fire-dist-04.ogg",
-    path .. "fire-dist-05.ogg",
-    path .. "fire-dist-06.ogg"
+    tail .. "fire-dist-308-rif-ext-01.ogg",
+    tail .. "fire-dist-308-rif-ext-02.ogg",
+    tail .. "fire-dist-308-rif-ext-03.ogg",
+    tail .. "fire-dist-308-rif-ext-04.ogg",
+    tail .. "fire-dist-308-rif-ext-05.ogg",
+    tail .. "fire-dist-308-rif-ext-06.ogg"
 }
 SWEP.DistantShootSoundIndoors = {
-    common .. "fire-dist-int-rifle-01.ogg",
-    common .. "fire-dist-int-rifle-02.ogg",
-    common .. "fire-dist-int-rifle-03.ogg",
-    common .. "fire-dist-int-rifle-04.ogg",
-    common .. "fire-dist-int-rifle-05.ogg",
-    common .. "fire-dist-int-rifle-06.ogg"
+    tail .. "fire-dist-308-rif-int-01.ogg",
+    tail .. "fire-dist-308-rif-int-02.ogg",
+    tail .. "fire-dist-308-rif-int-03.ogg",
+    tail .. "fire-dist-308-rif-int-04.ogg",
+    tail .. "fire-dist-308-rif-int-05.ogg",
+    tail .. "fire-dist-308-rif-int-06.ogg"
 }
 SWEP.DistantShootSoundOutdoorsSilenced = {
-    common .. "sup_tail.ogg"
+    common .. "sup-tail-01.ogg",
+    common .. "sup-tail-02.ogg",
+    common .. "sup-tail-03.ogg",
+    common .. "sup-tail-04.ogg",
+    common .. "sup-tail-05.ogg",
+    common .. "sup-tail-06.ogg",
+    common .. "sup-tail-07.ogg",
+    common .. "sup-tail-08.ogg",
+    common .. "sup-tail-09.ogg",
+    common .. "sup-tail-10.ogg"
 }
 SWEP.DistantShootSoundIndoorsSilenced = {
-    common .. "sup_tail.ogg"
+    common .. "fire-dist-int-pistol-light-01.ogg",
+    common .. "fire-dist-int-pistol-light-02.ogg",
+    common .. "fire-dist-int-pistol-light-03.ogg",
+    common .. "fire-dist-int-pistol-light-04.ogg",
+    common .. "fire-dist-int-pistol-light-05.ogg",
+    common .. "fire-dist-int-pistol-light-06.ogg"
 }
 SWEP.DistantShootSoundOutdoorsVolume = 1
 SWEP.DistantShootSoundIndoorsVolume = 1
@@ -423,10 +440,33 @@ SWEP.Animations = {
         },
     },
     ["fire"] = {
-        Source = {"fire"},
-        ShellEjectAt = 0,
-        SoundTable = {{ s = {path .. "mech-01.ogg", path .. "mech-02.ogg", path .. "mech-03.ogg", path .. "mech-04.ogg", path .. "mech-05.ogg", path .. "mech-06.ogg"}, t = 0 }},
+        Source = "fire",
+        ShellEjectAt = 0.01,
+        SoundTable = {{ s = mech, t = 0, v = 0.25 }},
+    },  
+	["fire_iron"] = {
+        Source = "fire",
+        ShellEjectAt = 0.01,
+        SoundTable = {
+            {s = common .. "common_mech_light.ogg", t = 0},
+            { s = mech, t = 0 }
+        },
     },
+    ["fire_empty"] = {
+        Source = "fire_empty",
+        ShellEjectAt = 0.01,
+        SoundTable = {
+            {s = common .. "common_mech_light.ogg", t = 0},
+            {s = path .. "mech_last.ogg", t = 0}, -- Temporary
+        },
+    }, 
+	["fire_iron_empty"] = {
+        Source = "fire_empty",
+        ShellEjectAt = 0.01,
+        SoundTable = {
+            {s = common .. "common_mech_light.ogg", t = 0},
+            {s = path .. "mech_last.ogg", t = 0}, -- Temporary
+        },
     ["reload_empty"] = {
         Source = "reload_empty",
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
