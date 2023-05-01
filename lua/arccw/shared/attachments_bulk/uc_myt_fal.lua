@@ -36,7 +36,6 @@ att.Override_ShellScale = 1
 
 att.GivesFlags = {"cal_556"}
 att.Override_ShotgunReload = false
-att.Override_HybridReload = false
 
 att.AutoStats = true
 att.HideIfBlocked = true
@@ -88,6 +87,42 @@ end
 ArcCW.LoadAttachmentType(att, "uc_myt_fal_cal_556")
 
 ---------------------------------------------------------------------------------------------------------------------
+local att = {}
+
+att.PrintName = "C2A0 30-Round Mag-Loader"
+att.AbbrevName = "30-Round .154 Mag-Loader"
+
+att.Icon = Material("entities/att/ue_fal/r_ex.png", "smooth mips")
+att.Description = [[Touch the magazine. Stats reduced to nothing :DDDD
+owo, its like they WANT you to use default strips]]
+att.Desc_Pros = {}
+att.Desc_Cons = {}
+att.Desc_Neutrals = {}
+att.Slot = "uc_myt_fal_mag"
+att.SortOrder = 30 + 0
+
+att.AutoStats = true
+att.HideIfBlocked = true
+
+att.Mult_Penetration = 0.1
+att.Mult_DamageMin = 0.5
+att.Mult_Damage = 0.25
+att.Mult_Range = 0.1
+
+att.Override_ClipSize = 30
+
+att.ActivateElements = {"c_30"} -- do i change model to full lenght dust cover?
+
+att.Hook_SelectReloadAnimation = function(wep, anim)
+    return anim .. "_mag"
+end
+
+att.Hook_TranslateAnimation = function(wep, anim)
+    return anim .. "_mag"
+end
+
+ArcCW.LoadAttachmentType(att, "uc_myt_fal_cringe_30")
+
 local att = {}
 
 att.PrintName = "C2A1 40-Round Mag"

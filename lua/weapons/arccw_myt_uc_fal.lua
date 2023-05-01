@@ -264,6 +264,7 @@ SWEP.AttachmentElements = {
 	VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 3}, },
 	},
 	["x_40"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 2}, }, },
+	["c_30"] = { VMBodygroups = { {ind = 4, bg = 2}, {ind = 2, bg = 1}, }, },
 
 	["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5} }, },
 	["hg_s"] = { VMBodygroups = { {ind = 1, bg = 2} }, },
