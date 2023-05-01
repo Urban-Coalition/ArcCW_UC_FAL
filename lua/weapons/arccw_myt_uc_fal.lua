@@ -247,6 +247,8 @@ SWEP.BarrelLength = 24
 
 SWEP.AttachmentElements = {
 	["stock_tube"] = { VMBodygroups = { {ind = 7, bg = 4}, }, },
+
+	["cal_556"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 3}, }, },
 }
 
 
@@ -323,7 +325,7 @@ SWEP.Attachments = {
     },
     {
         PrintName = "Magazine",
-        Slot = "ur_g3_mag",
+        Slot = "uc_myt_fal_mag",
         DefaultAttName = "20-Round Mag",
         DefaultAttIcon = Material("entities/att/acwatt_ud_m16_mag_30.png", "smooth mips"),
     },
@@ -592,6 +594,31 @@ SWEP.Animations = {
             {s = rottle,  t = 0.2},
             {s = path .. "return.ogg",  t = 0.475}, -- Temporary
             {s = common .. "shoulder.ogg",  t = 0.55},
+        },
+    },
+
+    ["reload_empty_556"] = {
+        Source = "reload_empty_556",
+        TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
+        LHIK = true,
+        LHIKIn = 0.3,
+        LHIKOut = 0.5,
+        LHIKEaseOut = 0.25,
+        MinProgress = 2.1,
+        LastClip1OutTime = 50/30,
+        SoundTable = {
+        },
+    },
+    ["reload_556"] = {
+        Source = "reload_556",
+        TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
+        LHIK = true,
+        LHIKIn = 0.3,
+        LHIKOut = 0.5,
+        LHIKEaseOut = 0.25,
+        MinProgress = 2.1,
+        LastClip1OutTime = 50/30,
+        SoundTable = {
         },
     },
 }

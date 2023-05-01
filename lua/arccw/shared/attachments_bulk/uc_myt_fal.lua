@@ -14,7 +14,7 @@ att.Description = "The South Division did not need such stopping power of a full
 att.Desc_Pros = {}
 att.Desc_Cons = {}
 att.Desc_Neutrals = {}
-att.Slot = "uc_myt_scar_mag"
+att.Slot = "uc_myt_fal_mag"
 att.SortOrder = 30 + 56
 
 att.Override_Ammo = "smg1"
