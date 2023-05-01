@@ -245,6 +245,11 @@ SWEP.CustomizeAng = Angle(8, 30, 15)
 
 SWEP.BarrelLength = 24
 
+SWEP.BulletBones = { 
+    [0] = "b_wpn_mag_b1",
+	[1] = "b_wpn_mag_b1"
+}
+
 SWEP.AttachmentElements = {
 	["o_rail"] = { VMBodygroups = { {ind = 8, bg = 1}, }, },
 	
@@ -259,6 +264,7 @@ SWEP.AttachmentElements = {
 	["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5} }, },
 	["hg_s"] = { VMBodygroups = { {ind = 1, bg = 2} }, },
 	["hg_xs"] = { VMBodygroups = { {ind = 1, bg = 1} }, },
+	["hg_aus"] = { VMBodygroups = { {ind = 1, bg = 6} }, },
 }
 
 
@@ -490,12 +496,13 @@ SWEP.Animations = {
     ["reload_empty"] = {
         Source = "reload_empty",
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
+        MinProgress = 132/40,
+        LastClip1OutTime = 58/40,
         LHIK = true,
-        LHIKIn = 0.3,
+        LHIKIn = 4.15,
+        LHIKEaseIn = 0.4,
+        LHIKEaseOut = 0.3,
         LHIKOut = 0.5,
-        LHIKEaseOut = 0.25,
-        MinProgress = 2.1,
-        LastClip1OutTime = 50/30,
         SoundTable = {
             {s = rottle,  t = 0.0},
             {s = path .. "chback.ogg", t = 5/30, v = 1.95},
@@ -521,12 +528,13 @@ SWEP.Animations = {
         Source = "reload_empty_40",
         RareSourceChance = 100,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
+        MinProgress = 273/40,
+        LastClip1OutTime = 58/40,
         LHIK = true,
-        LHIKIn = 0.3,
+        LHIKIn = 7.8,
+        LHIKEaseIn = 0.4,
+        LHIKEaseOut = 0.3,
         LHIKOut = 0.5,
-        LHIKEaseOut = 0.25,
-        MinProgress = 2.1,
-        LastClip1OutTime = 50/30,
         SoundTable = {
             {s = rottle,  t = 0.0},
             {s = path .. "chback.ogg", t = 6/30, v = 1.95},
@@ -618,8 +626,9 @@ SWEP.Animations = {
         Source = "sgreload_finish",
         LHIK = true,
         LHIKIn = 0,
-        LHIKEaseOut = 0.3,
-        LHIKOut = 0.6,
+        MinProgress = 0.24,
+        LHIKEaseOut = 0.2,
+        LHIKOut = 0.3,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_SHOTGUN,
         TPAnimStartTime = 0.8,
         SoundTable = {
@@ -655,13 +664,15 @@ SWEP.Animations = {
     },
 }
 
-SWEP.Hook_TranslateAnimation = function(wep,data,anim)
-	local cur_ammo = wep.Primary.ClipSize + wep:GetChamberSize() - wep:Clip1()
 
-    if wep:GetOwner():GetAmmoCount(wep.Primary.Ammo) >= 10 and anim == "sgreload_insert" then
-        return "sgreload_insert_10"
-    elseif wep:GetOwner():GetAmmoCount(wep.Primary.Ammo) >= 5 and anim == "sgreload_insert" then
-        return "sgreload_insert_5"	end
+SWEP.Hook_SelectInsertAnimation = function(wep, data)
+    local insertAmt = math.min(wep.Primary.ClipSize + wep:GetChamberSize() - wep:Clip1(), wep:GetOwner():GetAmmoCount(wep.Primary.Ammo), 20)
+    local anim = "sgreload_insert_" .. insertAmt
+	if insertAmt >= 10 then
+		return {count = 10, anim = "sgreload_insert_10", empty = false}
+	elseif insertAmt >= 5 then
+		return {count = 5, anim = "sgreload_insert_5", empty = false}
+	end
 end
 
--- SWEP.Hook_Think = ArcCW.UC.ADSReload
+SWEP.Hook_Think = ArcCW.UC.ADSReload

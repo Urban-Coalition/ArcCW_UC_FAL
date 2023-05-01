@@ -193,7 +193,7 @@ local att = {}
 -- Barrels ----------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
 att.PrintName = "20\" Wood Barrel"
-att.Icon = Material("entities/att/ue_scar/u_rail.png", "smooth mips")
+att.Icon = Material("entities/att/ue_fal/hg_wood.png", "smooth mips")
 att.Description = "Extended barrel with added wood. Bayonetta"
 att.Desc_Pros = {
 }
@@ -224,8 +224,48 @@ ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_l")
 ---------------------------------------------------------------------------------------------------------------------
 local att = {}
 
+att.PrintName = "24\" LMG Barrel"
+att.Icon = Material("entities/att/ue_fal/hg_aus.png", "smooth mips")
+att.Description = "Extended barrel with removed handguard. Non fuctional bipod functions as handguard instead."
+att.Desc_Pros = {
+}
+att.Desc_Cons = {
+}
+att.Desc_Neutrals = {
+}
+att.Slot = "uc_myt_fal_hg"
+
+att.AutoStats = true
+att.SortOrder = 24
+
+att.Mult_SightTime = 1.05
+att.Mult_SightedSpeedMult = 0.75
+att.Mult_HipDispersion = 1.125
+
+att.LHIK = true
+att.LHIK_Priority = -20
+att.Model = "models/weapons/arccw/c_uc_myt_fal.mdl"
+att.ModelBodygroups = "174122250"
+att.DroppedModel = "models/items/boxsrounds.mdl"
+att.ModelOffset = (Vector(0.41, 0, -1.63) - Vector(7, -0.75, 1))
+
+
+att.Mult_Recoil = 0.75
+att.Mult_AccuracyMOA = 0.65
+att.Mult_Range = 2
+att.Mult_RPM = 0.95
+att.Mult_Sway = 1.15
+
+att.Add_BarrelLength = 8
+att.Mult_PhysBulletMuzzleVelocity = 1.2
+
+att.ActivateElements = {"hg_aus"}
+ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_aus")
+---------------------------------------------------------------------------------------------------------------------
+local att = {}
+
 att.PrintName = "10\" PARA Barrel"
-att.Icon = Material("entities/att/ue_scar/u_xs.png", "smooth mips")
+att.Icon = Material("entities/att/ue_fal/hg_para.png", "smooth mips")
 att.Description = "Carbine length handguard and barrel package."
 att.Desc_Pros = {
 }
@@ -258,7 +298,7 @@ ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_s")
 local att = {}
 
 att.PrintName = "6.5\" DSA Barrel"
-att.Icon = Material("entities/att/ue_scar/u_s.png", "smooth mips")
+att.Icon = Material("entities/att/ue_fal/hg_dsa.png", "smooth mips")
 att.Description = "Shoot your finger off with this one trick."
 att.Desc_Pros = {
 }
