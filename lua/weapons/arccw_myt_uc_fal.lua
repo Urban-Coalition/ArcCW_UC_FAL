@@ -284,13 +284,14 @@ SWEP.Attachments = {
         PrintName = "Optic",
         DefaultAttName = "Iron Sights",
         InstalledEles = {"o_rail"},
-        Slot = {"optic","sniper_optic"},
+        Slot = {"optic"},
         Bone = "W_Main",
         VMScale = Vector(1, 1, 1),
         Offset = {
             vpos = Vector(-0, -1.6, -5),
             vang = Angle(90, 0, -90),
         },
+        MergeSlots = {15},
     },
     {
         PrintName = "Barrel",
@@ -305,22 +306,22 @@ SWEP.Attachments = {
     {
         PrintName = "Muzzle",
         Slot = "muzzle",
-        Bone = "body",
+        Bone = "W_Main",
         Offset = {
-            vpos = Vector(0, 0.06, 22.5),
+            vpos = Vector(0, 0, 20.5),
             vang = Angle(90, 0, -90),
         },
     },
     {
         PrintName = "Underbarrel",
         Slot = "foregrip",
-        Bone = "body",
+        Bone = "W_Main",
         Offset = {
             vpos = Vector(0, 1.17, 8.6),
             vang = Angle(90, 0, -90),
         },
         InstalledEles = {"mount_underbarrel"},
-        ExcludeFlags = {"g3_noub"},
+        ExcludeFlags = {"fal_noub"},
         MergeSlots = {13},
     },
     {
@@ -376,10 +377,10 @@ SWEP.Attachments = {
             vang = Angle(90, 0, -90),
         },
     },
-    {
+    {	--13--
         PrintName = "M203 slot",
         Slot = "uc_ubgl",
-        Bone = "body",
+        Bone = "W_Main",
         Offset = {
             vpos = Vector(0, 0.1, 6.9), -- this is also changed by ModifyBodygroups
             vang = Angle(90, 0, -90),
@@ -388,10 +389,9 @@ SWEP.Attachments = {
         InstalledEles = {"mount_underbarrel"},
     },
 	
-    {
+    {	--14--
         PrintName = "Tube Stock Adaptor",
         Slot = {"go_stock"},
-        -- GSO support
         Hidden = true,
         InstalledEles = {"stock_tube"},
         Bone = "W_Main",
@@ -400,7 +400,18 @@ SWEP.Attachments = {
             vang = Angle(90, 0, -90),
         },
     },
-
+    {	--15--
+        PrintName = "Optic Sniper",
+        InstalledEles = {"o_rail"},
+        Hidden = true,
+        Slot = {"sniper_optic"},
+        Bone = "W_Main",
+        VMScale = Vector(1, 1, 1),
+        Offset = {
+            vpos = Vector(-0, -1.6, -5),
+            vang = Angle(90, 0, -90),
+        },
+    },
 }
 
 SWEP.Animations = {
@@ -673,9 +684,10 @@ SWEP.Animations = {
 SWEP.Hook_SelectInsertAnimation = function(wep, data)
     local insertAmt = math.min(wep.Primary.ClipSize + wep:GetChamberSize() - wep:Clip1(), wep:GetOwner():GetAmmoCount(wep.Primary.Ammo), 20)
     local anim = "sgreload_insert_" .. insertAmt
-	if insertAmt >= 10 then
+
+	if !wep.Attachments[15].Installed and insertAmt >= 10 then
 		return {count = 10, anim = "sgreload_insert_10", empty = false}
-	elseif insertAmt >= 5 then
+	elseif !wep.Attachments[15].Installed and insertAmt >= 5 then
 		return {count = 5, anim = "sgreload_insert_5", empty = false}
 	end
 end
