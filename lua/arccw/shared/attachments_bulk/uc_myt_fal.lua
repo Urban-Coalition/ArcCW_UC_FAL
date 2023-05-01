@@ -365,8 +365,8 @@ att.Mult_Sway = 0.7
 att.Add_BarrelLength = -10
 att.Mult_PhysBulletMuzzleVelocity = 0.65
 
-att.ActivateElements = {"hg_s", "hg_short"}
-ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_s")
+att.ActivateElements = {"hg_cqc", "hg_short"}
+ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_cqc")
 ---------------------------------------------------------------------------------------------------------------------
 local att = {}
 

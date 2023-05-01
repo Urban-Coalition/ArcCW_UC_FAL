@@ -405,6 +405,7 @@ SWEP.Attachments = {
         Hidden = true,
         InstalledEles = {"stock_tube"},
         Bone = "W_Main",
+        VMScale = Vector(1.05, 1.05, 1.05),
         Offset = {
             vpos = Vector(0, 0.5, -10.5),
             vang = Angle(90, 0, -90),
