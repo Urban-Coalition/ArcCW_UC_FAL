@@ -240,7 +240,7 @@ att.Desc_Cons = {
 att.Desc_Neutrals = {
 }
 att.Slot = "uc_myt_fal_hg"
-
+att.GivesFlags = {"fal_nomuz"}
 att.AutoStats = true
 att.SortOrder = 20
 
