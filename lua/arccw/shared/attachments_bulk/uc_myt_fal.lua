@@ -94,8 +94,9 @@ att.PrintName = "C2A0 30-Round Mag-Loader"
 att.AbbrevName = "30-Round .154 Mag-Loader"
 
 att.Icon = Material("entities/att/ue_fal/r_ex.png", "smooth mips")
-att.Description = [[Touch the magazine. Stats reduced to nothing :DDDD
-owo, its like they WANT you to use default strips]]
+att.Description = [[Touch the magazine. Stats reduced to nothing :DDDD Careful what you wish for
+owo, its like they WANT you to use default strips
+Learn to take no for an answer]]
 att.Desc_Pros = {}
 att.Desc_Cons = {}
 att.Desc_Neutrals = {}
