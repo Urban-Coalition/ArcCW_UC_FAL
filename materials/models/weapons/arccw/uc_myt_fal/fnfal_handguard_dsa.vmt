@@ -9,7 +9,7 @@
 //	"$halflambert" 					"1"
 	"$phong"                        "1"	
 	"$phongalbedotint"              "1"	
-	"$phongexponent"                "20"	
+	"$phongexponent"                "40"	
 	"$phongboost"                   "1"
 	"$phongfresnelranges"           "[0.75 1.5 3]"
 	"$phongtint" 		"[1 1 1]"

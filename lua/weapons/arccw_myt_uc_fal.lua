@@ -252,7 +252,7 @@ SWEP.BulletBones = {
 
 SWEP.AttachmentElements = {
 	["o_rail"] = { VMBodygroups = { {ind = 8, bg = 1}, }, },
-	
+
 	["stock_tube"] = { VMBodygroups = { {ind = 7, bg = 4}, }, },
 	["stock_fold"] = { VMBodygroups = { {ind = 7, bg = 1}, }, },
 	["stock_foldf"] = { VMBodygroups = { {ind = 7, bg = 2}, }, },
@@ -268,13 +268,21 @@ SWEP.AttachmentElements = {
 
 	["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5} }, },
 	["hg_cqc"] = { VMBodygroups = { {ind = 1, bg = 4}, {ind = 9, bg = 4} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 17.1) },} },
-	["hg_s"] = { VMBodygroups = { {ind = 1, bg = 2}, {ind = 9, bg = 2} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 20.4) },} },
-	["hg_xs"] = { VMBodygroups = { {ind = 1, bg = 1}, {ind = 9, bg = 1} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 14.5) },} },
+	["hg_para"] = { VMBodygroups = { {ind = 1, bg = 2}, },	AttPosMods = {[4] = { vpos = Vector(0, 1.45, 7) },} },
+	["hg_xs"] = { VMBodygroups = { {ind = 1, bg = 1}, {ind = 9, bg = 1} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 14.5) }, [4] = { vpos = Vector(0, 0.85, 7) },} },
 	["hg_aus"] = { VMBodygroups = { {ind = 1, bg = 6}, {ind = 9, bg = 5} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 25.25) },} },
 }
 
 SWEP.Hook_ModifyBodygroups = function(wep, data)
 	local vm = data.vm
+	local handguard = wep.Attachments[2].Installed
+	if wep.Attachments[4].Installed then 
+        if (handguard == "uc_myt_fal_hg_xs") || (handguard == "uc_myt_scar_hg_sd") then vm:SetBodygroup(10, 0) 
+			elseif handguard == "uc_myt_fal_hg_para" then vm:SetBodygroup(10, 2)
+			else   vm:SetBodygroup(10, 1) 
+		end
+	end
+
 	if wep.Attachments[3].Installed then vm:SetBodygroup(9, 3) end	
 end
 
@@ -328,7 +336,7 @@ SWEP.Attachments = {
         Slot = "foregrip",
         Bone = "W_Main",
         Offset = {
-            vpos = Vector(0, 1.17, 8.6),
+            vpos = Vector(0, 1, 8.6),
             vang = Angle(90, 0, -90),
         },
         InstalledEles = {"mount_underbarrel"},

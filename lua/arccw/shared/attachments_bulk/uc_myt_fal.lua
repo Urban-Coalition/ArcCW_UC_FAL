@@ -307,9 +307,9 @@ ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_aus")
 ---------------------------------------------------------------------------------------------------------------------
 local att = {}
 
-att.PrintName = "10\" PARA Barrel"
+att.PrintName = "20\" PARA Barrel"
 att.Icon = Material("entities/att/ue_fal/hg_para.png", "smooth mips")
-att.Description = "Carbine length handguard and barrel package."
+att.Description = "Semi Wood."
 att.Desc_Pros = {
 }
 att.Desc_Cons = {
@@ -321,22 +321,18 @@ att.Slot = "uc_myt_fal_hg"
 att.AutoStats = true
 att.SortOrder = 10
 
-att.Mult_SightTime = 0.85
+att.Mult_SightTime = 0.9
 att.Mult_SpeedMult = 1.025
-att.Mult_SightedSpeedMult = 1.1
-att.Mult_HipDispersion = 0.7
+att.Mult_SightedSpeedMult = 1.05
+att.Mult_HipDispersion = 1.2
 
-att.Mult_RPM = 1.25
-att.Mult_Recoil = 1.75
-att.Mult_AccuracyMOA = 2.5
-att.Mult_Range = 0.35
-att.Mult_Sway = 0.7
+att.Mult_RPM = 1.05
+att.Mult_Recoil = 1.05
+att.Mult_AccuracyMOA = 1.25
+att.Mult_Sway = 0.9
 
-att.Add_BarrelLength = -10
-att.Mult_PhysBulletMuzzleVelocity = 0.65
-
-att.ActivateElements = {"hg_s", "hg_short"}
-ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_s")
+att.ActivateElements = {"hg_para"}
+ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_para")
 ---------------------------------------------------------------------------------------------------------------------
 local att = {}
 
@@ -392,11 +388,11 @@ att.Mult_SpeedMult = 1.025
 att.Mult_SightedSpeedMult = 1.1
 att.Mult_HipDispersion = 0.7
 
-att.Mult_RPM = 1.15
-att.Mult_Recoil = 1.5
-att.Mult_AccuracyMOA = 2
-att.Mult_Range = 0.5
-att.Mult_Sway = 0.75
+att.Mult_RPM = 1.1
+att.Mult_Recoil = 1.25
+att.Mult_AccuracyMOA = 1.5
+att.Mult_Range = 0.75
+att.Mult_Sway = 0.8
 
 att.Add_BarrelLength = -6
 att.Mult_PhysBulletMuzzleVelocity = 0.729167
