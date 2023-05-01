@@ -2,25 +2,27 @@
 {
 	"$basetexture"			"models\weapons\arccw\uc_myt_fal\fia2"
 	"$bumpmap"			"models\weapons\arccw\uc_myt_fal\fia2_n"
-	"$envmapmask"			"models\weapons\arccw\uc_myt_fal\fia2_s"
-	"$phongexponenttexture" 		"models\weapons\arccw\uc_myt_fal\fia2_g"
+ 	"$phongexponenttexture"		"models\weapons\arccw\uc_myt_fal\fia2_e"
 
-	"$color"				"[1 1 1]"
-	"$roughnessmultiplier" 		"0.7" 
-                "$metal"				"1"
-	
-	$normalmapalphaenvmapmask 	"1"
+// map interp
+	"$color2"					"[.75 .75 .75]" // vector -- rgb tinting of the basetexture
+	"$blendTintByBaseAlpha"		"1" // bool -- uses base texture's alpha channel to mask color2's effect
 
-	 $phongtint 			"[.6 .8 1]"
+// phong (convar: mat_phong "bool")
+	"$phong"					"1" // bool -- phong enabler, have this on 1 if you have a central neural system
+	"$phongboost"				"0.2" // float -- phong intensity coefficient on top of normal map's alpha (aka phong mask)
+	"$phongfresnelranges"		"[1 1 1]" // vector -- phong fresnel ranges, default are [0 0.5 1]
+	"$phongalbedotint" 			"1" // bool -- enables basetexture tinting of the phong's color but masks it with phongexponent's green channel
+  	  "$phongtint" 			"[1 1 1]"
+// rimlight (convar: mat_rimlight "bool")
+	"$rimlight"					"1" // bool -- rimlight enabler, doesn't have to be on, use if needed
+	"$rimmask"					"1" // bool -- rimlight masking through exponent's alpha channel (use alpha vtf format)
+	"$rimlightboost"			"1" // float -- rimlight intensity coefficient
+	"$rimlightexponent"			"3" // float -- rimlight exponent
 
-	$envmap 			env_cubemap
-	$envmaptint 			"[.007 .007 .007  ]"
+	$nocull = 0
 
-	$phong 				"1"
-	//$PhongAlbedoTint 		"0"	
-	//$BasemapLuminancePhongMask	"1"
-	
-	$phongexponent 			"45"
-	$phongboost 			"0.3"
-	$phongfresnelranges		"[0.5 0.1 0.3]"
+// envmap (convar: mat_specular "bool")
+	"$envmap"					"env_cubemap" // string -- path to envmap or envmap entity name
+	"$envmaptint"				"[.001 .001 .001]" // vector -- rgb tinting of the envmap: all dimentions should be equal, ideally
 }

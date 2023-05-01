@@ -2,13 +2,17 @@
 {
 	"$basetexture"			"models\weapons\arccw\uc_myt_fal\fnfal_handguard_dsa"
 	"$bumpmap" 			"models\weapons\arccw\uc_myt_fal\fnfal_handguard_dsa_n"
+	"$phongexponenttexture"		"models\weapons\arccw\uc_myt_fal\fnfal_handguard_dsa_e"
+	"$color2"					"[.65 .65 .65]" 
+	
 
 //	"$halflambert" 					"1"
 	"$phong"                        "1"	
 	"$phongalbedotint"              "1"	
-	"$phongexponent"                "16"	
-	"$phongboost"                   "30"
+	"$phongexponent"                "20"	
+	"$phongboost"                   "1"
 	"$phongfresnelranges"           "[0.75 1.5 3]"
+	"$phongtint" 		"[1 1 1]"
 
 	"$basetexturealphaenvmapmask"	"1"
 	"$envmaptint"			"[0.025 0.025 0.025]"
