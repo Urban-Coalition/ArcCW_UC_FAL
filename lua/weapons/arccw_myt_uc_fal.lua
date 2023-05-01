@@ -266,12 +266,17 @@ SWEP.AttachmentElements = {
 	["x_40"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 2}, }, },
 	["c_30"] = { VMBodygroups = { {ind = 4, bg = 2}, {ind = 2, bg = 1}, }, },
 
-	["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5} }, },
-	["hg_s"] = { VMBodygroups = { {ind = 1, bg = 2} }, },
-	["hg_xs"] = { VMBodygroups = { {ind = 1, bg = 1} }, },
-	["hg_aus"] = { VMBodygroups = { {ind = 1, bg = 6} }, },
+	["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5}, {ind = 9, bg = 5} }, },
+	["hg_cqc"] = { VMBodygroups = { {ind = 1, bg = 4}, {ind = 9, bg = 4} }, },
+	["hg_s"] = { VMBodygroups = { {ind = 1, bg = 2}, {ind = 9, bg = 2} }, },
+	["hg_xs"] = { VMBodygroups = { {ind = 1, bg = 1}, {ind = 9, bg = 1} }, },
+	["hg_aus"] = { VMBodygroups = { {ind = 1, bg = 6}, {ind = 9, bg = 6} }, },
 }
 
+SWEP.Hook_ModifyBodygroups = function(wep, data)
+	local vm = data.vm
+	if wep.Attachments[2].Installed then vm:SetBodygroup(9, 3) end	
+end
 
 SWEP.ExtraSightDist = 2
 SWEP.GuaranteeLaser = false

@@ -285,7 +285,7 @@ att.Mult_HipDispersion = 1.125
 att.LHIK = true
 att.LHIK_Priority = -20
 att.Model = "models/weapons/arccw/c_uc_myt_fal.mdl"
-att.ModelBodygroups = "174122250"
+att.ModelBodygroups = "1741222503"
 att.DroppedModel = "models/items/boxsrounds.mdl"
 att.ModelOffset = (Vector(0.41, 0, -1.63) - Vector(7, -0.75, 1))
 att.GivesFlags = {"fal_noub"}
@@ -307,6 +307,39 @@ local att = {}
 att.PrintName = "10\" PARA Barrel"
 att.Icon = Material("entities/att/ue_fal/hg_para.png", "smooth mips")
 att.Description = "Carbine length handguard and barrel package."
+att.Desc_Pros = {
+}
+att.Desc_Cons = {
+}
+att.Desc_Neutrals = {
+}
+att.Slot = "uc_myt_fal_hg"
+
+att.AutoStats = true
+att.SortOrder = 10
+
+att.Mult_SightTime = 0.85
+att.Mult_SpeedMult = 1.025
+att.Mult_SightedSpeedMult = 1.1
+att.Mult_HipDispersion = 0.7
+
+att.Mult_RPM = 1.25
+att.Mult_Recoil = 1.75
+att.Mult_AccuracyMOA = 2.5
+att.Mult_Range = 0.35
+att.Mult_Sway = 0.7
+
+att.Add_BarrelLength = -10
+att.Mult_PhysBulletMuzzleVelocity = 0.65
+
+att.ActivateElements = {"hg_s", "hg_short"}
+ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_s")
+---------------------------------------------------------------------------------------------------------------------
+local att = {}
+
+att.PrintName = "12\" CQC Barrel"
+att.Icon = Material("entities/att/ue_fal/hg_short.png", "smooth mips")
+att.Description = "Circumsized."
 att.Desc_Pros = {
 }
 att.Desc_Cons = {
