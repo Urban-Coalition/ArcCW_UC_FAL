@@ -36,6 +36,7 @@ att.Override_ShellScale = 1
 
 att.GivesFlags = {"cal_556"}
 att.Override_ShotgunReload = false
+att.Override_HybridReload = false
 
 att.AutoStats = true
 att.HideIfBlocked = true
@@ -112,6 +113,8 @@ att.Mult_Range = 0.1
 att.Override_ClipSize = 30
 
 att.ActivateElements = {"c_30"} -- do i change model to full lenght dust cover?
+att.Override_ShotgunReload = false
+att.Override_HybridReload = false
 
 att.Hook_SelectReloadAnimation = function(wep, anim)
     return anim .. "_mag"
