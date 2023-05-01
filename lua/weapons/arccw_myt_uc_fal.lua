@@ -443,7 +443,7 @@ SWEP.Animations = {
     },
     ["fix"] = {
         Source = "fix",
-        ShellEjectAt = 0.5,
+        ShellEjectAt = 0.35,
         LHIK = true,
         LHIKIn = 0.3,
         LHIKEaseIn = 0.2,
@@ -605,17 +605,6 @@ SWEP.Animations = {
             {s = common .. "grab.ogg", t = 92/30},
             {s = common .. "shoulder.ogg", t = 93/30},
         },
-    },
-    ["unjam"] = {
-        Source = "jamfix",
-        ShellEjectAt = 0.65,
-        SoundTable = {
-            {s = common .. "cloth_4.ogg",  t = 0.1},
-            {s = path .. "chback.ogg",    t = 0.6},
-            {s = path .. "chamber.ogg",    t = 0.7},
-            {s = common .. "grab.ogg", t = 1.1},
-            {s = common .. "shoulder.ogg", t = 1.15},
-        }
     },
 	
     ["sgreload_start"] = {
