@@ -695,6 +695,31 @@ SWEP.Animations = {
         },
     },
 
+    ["reload_empty_mag"] = {
+        Source = "reload_empty_mag",
+        TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
+        LHIK = true,
+        LHIKIn = 0.3,
+        LHIKOut = 0.5,
+        LHIKEaseOut = 0.25,
+        MinProgress = 2.1,
+        LastClip1OutTime = 50/30,
+        SoundTable = {
+        },
+    },
+    ["reload_mag"] = {
+        Source = "reload_mag",
+        TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
+        LHIK = true,
+        LHIKIn = 0.3,
+        LHIKOut = 0.5,
+        LHIKEaseOut = 0.25,
+        MinProgress = 2.1,
+        LastClip1OutTime = 50/30,
+        SoundTable = {
+        },
+    },
+
     ["bash"] = { Source = "stab", }, 
 	["bash_empty"] = { Source = "stab_emp", },
 	["bash_bayo"] = { Source = "stab", },
