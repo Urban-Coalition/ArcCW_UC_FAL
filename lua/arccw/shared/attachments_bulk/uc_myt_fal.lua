@@ -105,6 +105,10 @@ att.SortOrder = 30 + 0
 att.AutoStats = true
 att.HideIfBlocked = true
 
+att.Override_Malfunction = true
+att.Mult_MalfunctionMean = 0.005 -- LOL
+att.Mult_MalfunctionVariance = 1.75
+
 att.Mult_Penetration = 0.1
 att.Mult_DamageMin = 0.5
 att.Mult_Damage = 0.25
@@ -414,7 +418,7 @@ att.Desc_Cons = {
 }
 att.Desc_Neutrals = {
 }
-att.Slot = "uc_myt_scar_grip"
+att.Slot = "uc_myt_fal_grip"
 
 att.AutoStats = true
 

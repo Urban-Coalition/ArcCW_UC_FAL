@@ -441,6 +441,22 @@ SWEP.Animations = {
     ["idle_empty"] = {
         Source = "idle_empty",
     },
+    ["fix"] = {
+        Source = "fix",
+        ShellEjectAt = 0.5,
+        LHIK = true,
+        LHIKIn = 0.3,
+        LHIKEaseIn = 0.2,
+        LHIKEaseOut = 0.3,
+        LHIKOut = 0.7,
+        SoundTable = {
+            {s = common .. "raise.ogg", t = 0},
+            {s = common .. "rattle.ogg", t = 0.2},
+            {s = path .. "chpull.ogg",   t = 0.15},
+            {s = common .. "cloth_4.ogg",  t = 0.5},
+            {s = path .. "chrelease.ogg",  t = 0.5},
+        },
+    },  
     ["draw"] = {
         Source = "draw",
         SoundTable = {
