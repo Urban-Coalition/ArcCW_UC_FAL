@@ -88,7 +88,38 @@ end
 ArcCW.LoadAttachmentType(att, "uc_myt_fal_cal_556")
 
 ---------------------------------------------------------------------------------------------------------------------
+local att = {}
 
+att.PrintName = "C2A1 40-Round Mag"
+att.AbbrevName = "40-Round .308 Mag"
+
+att.Icon = Material("entities/att/ue_fal/r_ex.png", "smooth mips")
+att.Description = "The South Division did not need such stopping power of a full blown cartridge, instead opted for a more conventional magazine in an intermediate calibre."
+att.Desc_Pros = {}
+att.Desc_Cons = {}
+att.Desc_Neutrals = {}
+att.Slot = "uc_myt_fal_mag"
+att.SortOrder = 40 + 308
+
+att.Override_ShotgunReload = false
+att.Override_HybridReload = false
+
+att.AutoStats = true
+att.HideIfBlocked = true
+
+att.Override_ClipSize = 40
+
+att.ActivateElements = {"x_40"}
+
+att.Hook_SelectReloadAnimation = function(wep, anim)
+    return anim .. "_40"
+end
+
+att.Hook_TranslateAnimation = function(wep, anim)
+    return anim .. "_40"
+end
+
+ArcCW.LoadAttachmentType(att, "uc_myt_fal_x_40")
 
 -- Stocks ---------------------------------------------------------
 local att = {}

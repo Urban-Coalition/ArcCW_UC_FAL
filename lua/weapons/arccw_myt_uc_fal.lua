@@ -246,11 +246,14 @@ SWEP.CustomizeAng = Angle(8, 30, 15)
 SWEP.BarrelLength = 24
 
 SWEP.AttachmentElements = {
+	["o_rail"] = { VMBodygroups = { {ind = 8, bg = 1}, }, },
+	
 	["stock_tube"] = { VMBodygroups = { {ind = 7, bg = 4}, }, },
 	["stock_fold"] = { VMBodygroups = { {ind = 7, bg = 1}, }, },
 	["stock_foldf"] = { VMBodygroups = { {ind = 7, bg = 2}, }, },
 
-	["cal_556"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 3}, }, },
+	["conv_556"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 3}, }, },
+	["x_40"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 2}, }, },
 
 	["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5} }, },
 	["hg_s"] = { VMBodygroups = { {ind = 1, bg = 2} }, },
@@ -273,12 +276,12 @@ SWEP.Attachments = {
     {
         PrintName = "Optic",
         DefaultAttName = "Iron Sights",
-        --InstalledEles = {"upper_flat"}, no such thing
+        InstalledEles = {"o_rail"},
         Slot = {"optic","sniper_optic"},
         Bone = "W_Main",
-        VMScale = Vector(1.15, 1.15, 1.15),
+        VMScale = Vector(1, 1, 1),
         Offset = {
-            vpos = Vector(-0, -3.78, 0.5),
+            vpos = Vector(-0, -1.6, -5),
             vang = Angle(90, 0, -90),
         },
     },
