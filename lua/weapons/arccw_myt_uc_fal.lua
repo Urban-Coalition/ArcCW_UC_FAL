@@ -490,19 +490,6 @@ SWEP.Animations = {
             {s = common .. "cloth_6.ogg", t = 0.2},
         },
     },
-    ["ready"] = {
-        Source = "ready",
-        LHIK = true,
-        LHIKIn = 0,
-        LHIKOut = 0.6,
-        LHIKEaseOut = 0.25,
-        SoundTable = {
-            {s = ratel, t = 0},
-            {s = path .. "chback.ogg",    t = 0.2},
-            {s = path .. "chamber.ogg",    t = 0.3},
-            {s = common .. "shoulder.ogg",    t = .6},
-        },
-    },
     ["fire"] = {
         Source = "fire",
         ShellEjectAt = 0.01,
