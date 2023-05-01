@@ -165,44 +165,12 @@ att.Mult_Sway = 1.2
 att.Add_BarrelLength = 5
 att.Mult_PhysBulletMuzzleVelocity = 0.8
 
-att.ActivateElements = {"hg_l"}
-ArcCW.LoadAttachmentType(att, "uc_myt_scar_hg_l")
+att.ActivateElements = {"hg_wood"}
+ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_l")
 
 local att = {}
 
-att.PrintName = "24\" MKX Barrel"
-att.Icon = Material("entities/att/ue_scar/u_20.png", "smooth mips")
-att.Description = "Extended barrel with added handguard. Texture scretching galore."
-att.Desc_Pros = {
-}
-att.Desc_Cons = {
-}
-att.Desc_Neutrals = {
-}
-att.Slot = "uc_myt_scar_hg"
-
-att.AutoStats = true
-att.SortOrder = 24
-
-att.Mult_SightTime = 1.2
-att.Mult_SightedSpeedMult = 0.7
-att.Mult_HipDispersion = 1.25
-
-att.Mult_Recoil = 0.75
-att.Mult_AccuracyMOA = 0.65
-att.Mult_Range = 2
-att.Mult_RPM = 0.875
-att.Mult_Sway = 1.5
-
-att.Add_BarrelLength = 8
-att.Mult_PhysBulletMuzzleVelocity = 1.2
-
-att.ActivateElements = {"hg_20"}
-ArcCW.LoadAttachmentType(att, "uc_myt_scar_hg_20")
-
-local att = {}
-
-att.PrintName = "10\" CQC Barrel"
+att.PrintName = "10\" PARA Barrel"
 att.Icon = Material("entities/att/ue_scar/u_xs.png", "smooth mips")
 att.Description = "Carbine length handguard and barrel package."
 att.Desc_Pros = {
@@ -211,58 +179,10 @@ att.Desc_Cons = {
 }
 att.Desc_Neutrals = {
 }
-att.Slot = "uc_myt_scar_hg"
+att.Slot = "uc_myt_fal_hg"
 
 att.AutoStats = true
 att.SortOrder = 10
-
-att.LHIK = true
-att.LHIK_Priority = -20
-att.Model = "models/weapons/arccw/c_uc_myt_scar.mdl"
-att.ModelBodygroups = "1460563944"
-att.DroppedModel = "models/items/boxsrounds.mdl"
-att.ModelOffset = (Vector(0.41, 0, -1.63) - Vector(3.5, 0, -3.2))
-
-att.Mult_SightTime = 0.85
-att.Mult_SpeedMult = 1.025
-att.Mult_SightedSpeedMult = 1.1
-att.Mult_HipDispersion = 0.7
-
-att.Mult_RPM = 1.15
-att.Mult_Recoil = 1.5
-att.Mult_AccuracyMOA = 2
-att.Mult_Range = 0.5
-att.Mult_Sway = 0.75
-
-att.Add_BarrelLength = -6
-att.Mult_PhysBulletMuzzleVelocity = 0.729167
-
-att.ActivateElements = {"hg_s", "hg_short"}
-att.ExcludeFlags = {"conv_ak70"}
-ArcCW.LoadAttachmentType(att, "uc_myt_scar_hg_s")
-
-local att = {}
-
-att.PrintName = "6.5\" PDW Barrel"
-att.Icon = Material("entities/att/ue_scar/u_s.png", "smooth mips")
-att.Description = "Shoot your finger off with this one trick."
-att.Desc_Pros = {
-}
-att.Desc_Cons = {
-}
-att.Desc_Neutrals = {
-}
-att.Slot = "uc_myt_scar_hg"
-
-att.AutoStats = true
-att.SortOrder = 6.5
-
-att.LHIK = true
-att.LHIK_Priority = -20
-att.Model = "models/weapons/arccw/c_uc_myt_scar.mdl"
-att.ModelBodygroups = "1460563944"
-att.DroppedModel = "models/items/boxsrounds.mdl"
-att.ModelOffset = (Vector(0.41, 0, -1.63) - Vector(5, 0, -3.2))
 
 att.Mult_SightTime = 0.85
 att.Mult_SpeedMult = 1.025
@@ -278,55 +198,41 @@ att.Mult_Sway = 0.7
 att.Add_BarrelLength = -10
 att.Mult_PhysBulletMuzzleVelocity = 0.65
 
-att.ActivateElements = {"hg_xs", "hg_short"}
-att.ExcludeFlags = {"conv_ak70"}
-ArcCW.LoadAttachmentType(att, "uc_myt_scar_hg_xs")
-
-
+att.ActivateElements = {"hg_s", "hg_short"}
+ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_s")
 
 local att = {}
 
-att.PrintName = "16\" Whisper Barrel"
-att.Icon = Material("entities/att/ue_scar/u_sd.png", "smooth mips")
-att.Description = "Mytton, youre susposed to stop digging up dead horses"
+att.PrintName = "6.5\" DSA Barrel"
+att.Icon = Material("entities/att/ue_scar/u_s.png", "smooth mips")
+att.Description = "Shoot your finger off with this one trick."
 att.Desc_Pros = {
 }
 att.Desc_Cons = {
 }
 att.Desc_Neutrals = {
 }
-att.Slot = "uc_myt_scar_hg"
+att.Slot = "uc_myt_fal_hg"
 
 att.AutoStats = true
-att.SortOrder = 16
+att.SortOrder = 6.5
 
-att.Silencer = true
-att.SDBarrel = true
-att.Override_MuzzleEffect = "muzzleflash_suppressed"
+att.Mult_SightTime = 0.85
+att.Mult_SpeedMult = 1.025
+att.Mult_SightedSpeedMult = 1.1
+att.Mult_HipDispersion = 0.7
 
-att.Mult_SightTime = 1.05
+att.Mult_RPM = 1.15
+att.Mult_Recoil = 1.5
+att.Mult_AccuracyMOA = 2
+att.Mult_Range = 0.5
+att.Mult_Sway = 0.75
 
-att.Mult_Range = 0.85
-att.Mult_Recoil = 0.95
-att.Mult_AccuracyMOA = 1.15
-att.Mult_HipDispersion = 0.9
+att.Add_BarrelLength = -6
+att.Mult_PhysBulletMuzzleVelocity = 0.729167
 
-att.Add_BarrelLength = 4
-att.Mult_PhysBulletMuzzleVelocity = 1.2
-
-att.Override_Jamming = true
-att.Override_HeatLockout = false
-att.Override_HeatFix = false
-att.Override_HeatCapacity = 90
-att.Override_HeatDelayTime = 2
-att.Override_HeatDissipation = 7.5
-
-att.Mult_ShootVol = 0.65
-
-att.ActivateElements = {"hg_sd"}
-att.GivesFlags = {"sd"}
-ArcCW.LoadAttachmentType(att, "uc_myt_scar_hg_sd")
-
+att.ActivateElements = {"hg_xs", "hg_short"}
+ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_xs")
 
 
 -- Grips ---------------------------------------------------------

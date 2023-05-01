@@ -209,7 +209,7 @@ SWEP.BulletBones = {
 }
 
 SWEP.IronSightStruct = {
-    Pos = Vector(-2.3, -1, 0.9),
+    Pos = Vector(-2.73, -1, 0.8),
     Ang = Angle(0, 0.02, 0),
     Magnification = 1.1,
     ViewModelFOV = 65,
@@ -247,8 +247,14 @@ SWEP.BarrelLength = 24
 
 SWEP.AttachmentElements = {
 	["stock_tube"] = { VMBodygroups = { {ind = 7, bg = 4}, }, },
+	["stock_fold"] = { VMBodygroups = { {ind = 7, bg = 1}, }, },
+	["stock_foldf"] = { VMBodygroups = { {ind = 7, bg = 2}, }, },
 
 	["cal_556"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 3}, }, },
+
+	["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5} }, },
+	["hg_s"] = { VMBodygroups = { {ind = 1, bg = 2} }, },
+	["hg_xs"] = { VMBodygroups = { {ind = 1, bg = 1} }, },
 }
 
 
@@ -279,7 +285,7 @@ SWEP.Attachments = {
     {
         PrintName = "Barrel",
         DefaultAttName = "14\" Standard Barrel",
-        Slot = "uc_myt_scar_hg",
+        Slot = "uc_myt_fal_hg",
         Bone = "W_Main",
         Offset = {
             vpos = Vector(3.5, -4.25, -7),
@@ -391,26 +397,48 @@ SWEP.Animations = {
     ["idle"] = {
         Source = "idle"
     },
+    ["idle_empty"] = {
+        Source = "idle_empty",
+    },
     ["draw"] = {
         Source = "draw",
-        LHIK = false,
-        LHIKIn = 0,
-        LHIKOut = 0.5,
         SoundTable = {
-            {s = ratel, t = 0},
-            {s = common .. "raise.ogg", t = 0.2},
-            {s = common .. "shoulder.ogg",    t = 0.2},
+            {s = common .. "raise.ogg", t = 0},
+            {s = common .. "shoulder.ogg", t = 0.15},
+            {s = path .. "rattle_3.ogg", t = 0.2},
+        },
+    },
+    ["draw_empty"] = {
+        Source = "draw_empty",
+        Time = 20 / 30,
+        SoundTable = {
+            {s = common .. "raise.ogg", t = 0},
+            {s = common .. "shoulder.ogg", t = 0.15},
+            {s = path .. "rattle_3.ogg", t = 0.2},
         },
     },
     ["holster"] = {
         Source = "holster",
         LHIK = false,
-        LHIKIn = 0,
-        LHIKOut = 0.5,
+        LHIKIn = 0.3,
+        LHIKEaseIn = 0.4,
+        LHIKEaseOut = 0.15,
+        LHIKOut = 0.4,
         SoundTable = {
             {s = ratel, t = 0},
-           -- {s = common .. "raise.ogg", t = 0.2},
-            -- {s = common .. "shoulder.ogg",    t = 0.2},
+            {s = common .. "cloth_6.ogg", t = 0.2},
+        },
+    },
+    ["holster_empty"] = {
+        Source = "holster_empty",
+        LHIK = false,
+        LHIKIn = 0.3,
+        LHIKEaseIn = 0.4,
+        LHIKEaseOut = 0.15,
+        LHIKOut = 0.4,
+        SoundTable = {
+            {s = ratel, t = 0},
+            {s = common .. "cloth_6.ogg", t = 0.2},
         },
     },
     ["ready"] = {
