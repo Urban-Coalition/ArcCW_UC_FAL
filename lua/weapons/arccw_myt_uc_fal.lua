@@ -264,40 +264,25 @@ SWEP.MirrorVMWM = true
 SWEP.Attachments = {
     {
         PrintName = "Optic",
-        Slot = {"ur_g3_optic", "optic"},
-        Bone = "body",
+        DefaultAttName = "Iron Sights",
+        --InstalledEles = {"upper_flat"}, no such thing
+        Slot = {"optic","sniper_optic"},
+        Bone = "W_Main",
+        VMScale = Vector(1.15, 1.15, 1.15),
         Offset = {
-            vpos = Vector(0, -1.7, -0.55),
+            vpos = Vector(-0, -3.78, 0.5),
             vang = Angle(90, 0, -90),
         },
-        InstalledEles = {"mount_optic"},
-        CorrectivePos = Vector(0.018, 0, -0.0),
-        CorrectiveAng = Angle(0, 0.3, 0.45),
     },
     {
         PrintName = "Barrel",
-        Slot = "ur_g3_barrel",
-        DefaultAttName = "18\" Standard Barrel",
-        DefaultAttIcon = Material("entities/att/acwatt_ud_m16_barrel_20.png", "smooth mips"),
-        DefaultFlags = {"g3_not8"}
-    },
-    {
-        PrintName = "Reciever",
-        Slot = "ur_g3_rec",
-        DefaultAttName = "G3 Reciever",
-        DefaultAttIcon = Material("entities/att/acwatt_ud_m16_mag_30.png", "smooth mips"),
-    },
-    {
-        PrintName = "Handguard",
-        Slot = "ur_g3_handguard",
-        Bone = "body",
+        DefaultAttName = "14\" Standard Barrel",
+        Slot = "uc_myt_scar_hg",
+        Bone = "W_Main",
         Offset = {
-            vpos = Vector(0, 1.5, 10),
+            vpos = Vector(3.5, -4.25, -7),
             vang = Angle(90, 0, -90),
         },
-        DefaultAttName = "Standard Handguard",
-        DefaultAttIcon = Material("entities/att/acwatt_ud_m16_barrel_20.png", "smooth mips"),
-        ExcludeFlags = {"hk79_pro","g3_nohg"},
     },
     {
         PrintName = "Muzzle",
@@ -318,7 +303,7 @@ SWEP.Attachments = {
         },
         InstalledEles = {"mount_underbarrel"},
         ExcludeFlags = {"g3_noub"},
-        MergeSlots = {15},
+        MergeSlots = {13},
     },
     {
         PrintName = "Tactical",
@@ -334,7 +319,7 @@ SWEP.Attachments = {
         PrintName = "Stock",
         Slot = {"uc_myt_fal_stock"},
         DefaultAttName = "Standard Stock",
-        MergeSlots = {16},
+        MergeSlots = {14},
     },
     {
         PrintName = "Magazine",
@@ -467,6 +452,7 @@ SWEP.Animations = {
             {s = common .. "common_mech_light.ogg", t = 0},
             {s = path .. "mech_last.ogg", t = 0}, -- Temporary
         },
+	},
     ["reload_empty"] = {
         Source = "reload_empty",
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
@@ -616,8 +602,7 @@ SWEP.Hook_TranslateAnimation = function(wep,data,anim)
     if wep:GetOwner():GetAmmoCount(wep.Primary.Ammo) >= 10 and anim == "sgreload_insert" then
         return "sgreload_insert_10"
     elseif wep:GetOwner():GetAmmoCount(wep.Primary.Ammo) >= 5 and anim == "sgreload_insert" then
-        return "sgreload_insert_5"
-    end
+        return "sgreload_insert_5"	end
 end
 
 -- SWEP.Hook_Think = ArcCW.UC.ADSReload

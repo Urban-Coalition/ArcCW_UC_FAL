@@ -3,15 +3,14 @@
 
 
 
-
 -- Magazines/Caliber Conversions ---------------------------------------------------------
 local att = {}
 
-att.PrintName = "SCAR-L 30-Round STANAG Mag"
+att.PrintName = "IMBEL-A2 30-Round STANAG Mag"
 att.AbbrevName = "30-Round 5.56 Mag"
 
-att.Icon = Material("entities/att/ue_scar/l_556.png", "smooth mips")
-att.Description = "Barrel and receiver group that accepts an intermediate cartridge, downgrading the weapon into an assault rifle."
+att.Icon = Material("entities/att/ue_fal/r_imbel.png", "smooth mips")
+att.Description = "The South Division did not need such stopping power of a full blown cartridge, instead opted for a more conventional magazine in an intermediate calibre."
 att.Desc_Pros = {}
 att.Desc_Cons = {}
 att.Desc_Neutrals = {}
@@ -36,6 +35,8 @@ att.Override_ShellModel = "models/weapons/arccw/uc_shells/556x45.mdl"
 att.Override_ShellScale = 1
 
 att.GivesFlags = {"cal_556"}
+att.Override_ShotgunReload = false
+att.Override_HybridReload = false
 
 att.AutoStats = true
 att.HideIfBlocked = true
@@ -44,6 +45,8 @@ att.Override_ClipSize = 30
 
 att.ActivateElements = {"conv_556"}
 
+local path = ")weapons/uc_osk/"
+local common = ")/arccw_uc/common/"
 local tail556 = ")/arccw_uc/common/556x45/"
 local fire556dist = {tail556 .. "fire-dist-556x45-rif-ext-01.ogg", tail556 .. "fire-dist-556x45-rif-ext-02.ogg", tail556 .. "fire-dist-556x45-rif-ext-03.ogg", tail556 .. "fire-dist-556x45-rif-ext-04.ogg", tail556 .. "fire-dist-556x45-rif-ext-05.ogg", tail556 .. "fire-dist-556x45-rif-ext-06.ogg"}
 local fire556distint = {tail556 .. "fire-dist-556x45-rif-int-01.ogg", tail556 .. "fire-dist-556x45-rif-int-02.ogg", tail556 .. "fire-dist-556x45-rif-int-03.ogg", tail556 .. "fire-dist-556x45-rif-int-04.ogg", tail556 .. "fire-dist-556x45-rif-int-05.ogg", tail556 .. "fire-dist-556x45-rif-int-06.ogg"}
@@ -82,175 +85,17 @@ att.Hook_TranslateAnimation = function(wep, anim)
     return anim .. "_556"
 end
 
-ArcCW.LoadAttachmentType(att, "uc_myt_scar_cal_556")
+ArcCW.LoadAttachmentType(att, "uc_myt_fal_cal_556")
 
 ---------------------------------------------------------------------------------------------------------------------
-local att = {}
-
-att.PrintName = "SCAR-H 10-Round SPP Mag"
-att.AbbrevName = "10-Round .308 Mag"
-
-att.Icon = Material("entities/att/ue_scar/l_308.png", "smooth mips")
-att.Description = "Flush magazine armed with     harder    bullets     what increases    damage    by      making it     sharper?? Text impending."
-att.Desc_Pros = {}
-att.Desc_Cons = {}
-att.Desc_Neutrals = {}
-att.Slot = "uc_myt_scar_mag"
-att.SortOrder = 10 + 308
-
-att.Mult_DamageMin = 1.2   --- a fucking reason to use it, lol it reloads slower than 20 round
-att.Mult_Damage = 1.2
-att.Mult_Penetration = 40 / 20
-
-att.AutoStats = true
-att.HideIfBlocked = true
-
-att.Override_ClipSize = 10
-
-att.ActivateElements = {"conv_ssr"}
-
-att.Hook_SelectReloadAnimation = function(wep, anim)
-    return anim .. "_ssr"
-end
-
-att.Hook_TranslateAnimation = function(wep, anim)
-    return anim .. "_ssr"
-end
-
-ArcCW.LoadAttachmentType(att, "uc_myt_scar_cal_ssr")
-
 
 
 -- Stocks ---------------------------------------------------------
 local att = {}
 
-att.PrintName = "Marksman Stock"
-att.Icon = Material("entities/att/ue_scar/s_ssr.png", "smooth mips")
-att.Description = [[Heavy-duty and cumbersome marksman stock. Advised to use with according marksman build.]]
-att.Desc_Pros = {
-}
-att.Desc_Cons = {
-}
-att.Desc_Neutrals = {
-}
-att.Slot = "uc_myt_scar_stock"
-
-att.AutoStats = true
-att.SortOrder = 4
-
-att.Mult_HipDispersion = 0.65
-att.Mult_MoveDispersion = 0.95
-att.Mult_SightTime = 1.15
-att.Mult_Recoil = 0.85
-att.Mult_Sway = 0.75
-
-att.Add_BarrelLength = 0
-
-att.ActivateElements = {"stock_ssr"}
-
-ArcCW.LoadAttachmentType(att, "uc_myt_scar_stock_ssr")
-
-local att = {}
-
-att.PrintName = "AMCAR 231 Wire Stock"
-att.AbbrevName = "M231 Wire Stock"
-
-if GetConVar("arccw_truenames"):GetBool() then
-    att.PrintName = "M16 M231 Wire Stock"
-end
-
-att.Icon = Material("entities/att/acwatt_ud_m16_stock_231.png", "smooth mips")
-att.Description = "Wire stock used on the M231 FPW that provides some semblance of recoil control. Can be made even more agile by collapsing, improving point-shooting capabilities at the cost of recoil control.\n\nToggling this stock modifies performance accordingly."
-att.Desc_Pros = {
-}
-att.Desc_Cons = {
-}
-att.Desc_Neutrals = {
-}
-att.Slot = "uc_myt_scar_stock"
-
-att.AutoStats = true
-att.SortOrder = 3
-
-att.Mult_SightTime = 0.75
-att.Mult_Recoil = 1.25
-
-att.Add_BarrelLength = -4
-
-att.Mult_DrawTime = 0.75
-att.Mult_HolsterTime = 0.75
-
-att.ToggleSound = "arccw_uc/common/stockslide.ogg"
-
-att.ToggleLockDefault = true
-att.ToggleStats = {
-    {
-        PrintName = "Extended",
-        AutoStats = true,
-        ActivateElements = {"stock_231_ex"},
-    },
-    {
-        PrintName = "Collapsed",
-        AutoStats = true,
-        Mult_HipDispersion = 0.6,
-        Mult_MoveDispersion = 0.6,
-        Mult_RecoilSide = 2,
-        ActivateElements = {"stock_231_in"},
-    },
-}
-
-ArcCW.LoadAttachmentType(att, "uc_myt_scar_stock_wire")
-
-local att = {}
-
-att.PrintName = "PDW Stock"
-if GetConVar("arccw_truenames"):GetBool() then
-    att.PrintName = "MK16 Stock"
-end
-att.Icon = Material("entities/att/ue_scar/s_mk16.png", "smooth mips")
-att.Description = "Collapsable stock what shortens the rifle when collapsed while still retaining a proper cheek weld.\n\nToggling this stock modifies performance accordingly."
-att.Desc_Pros = {
-}
-att.Desc_Cons = {
-}
-att.Desc_Neutrals = {
-}
-att.Slot = "uc_myt_scar_stock"
-
-att.AutoStats = true
-att.SortOrder = 4
-
-att.Add_BarrelLength = 0
-
-att.ToggleLockDefault = true
-att.ToggleStats = {
-    {
-        PrintName = "Extended",
-        AutoStats = true,
-        ActivateElements = {"stock_pdw"},
-		Mult_HipDispersion = 1.25,
-		Mult_MoveDispersion = 1.2,
-		Mult_SightTime = 0.75,
-		Mult_Recoil = 1.25,
-		Mult_Sway = 1.5,
-    },
-    {
-        PrintName = "Collapsed",
-        AutoStats = true,
-        Mult_HipDispersion = 0.6,
-        Mult_MoveDispersion = 0.6,
-        Mult_RecoilSide = 2,
-        ActivateElements = {"stock_pdwf"},
-    },
-}
-
-ArcCW.LoadAttachmentType(att, "uc_myt_scar_stock_pdw")
-
-local att = {}
-
 att.PrintName = "Folding Stock"
-att.Icon = Material("entities/att/ur_ak/stock/fold.png", "smooth mips")
-att.Description = "Wrong gun. Completes with ARM CLIPPING when folded"
+att.Icon = Material("entities/att/ue_fal/s_fold.png", "smooth mips")
+att.Description = "Skeleton stock. Completes with ARM CLIPPING when folded"
 att.Desc_Pros = {
 }
 att.Desc_Cons = {
@@ -258,7 +103,7 @@ att.Desc_Cons = {
 att.Desc_Neutrals = {
 }
 att.Ignore = false
-att.Slot = "uc_myt_scar_stock"
+att.Slot = "uc_myt_fal_stock"
 
 att.AutoStats = true
 att.SortOrder = 4
@@ -286,51 +131,23 @@ att.ToggleStats = {
     },
 }
 
-ArcCW.LoadAttachmentType(att, "uc_myt_scar_stock_fold")
-
-local att = {}
-
-att.PrintName = "Folded Stock"
-
-att.Icon = Material("entities/att/ue_scar/s_fold.png", "smooth mips")
-att.Description = "Collapse the stock, enhancing the weapon's utility in corps-a-corps environment."
-att.Desc_Pros = {
-}
-att.Desc_Cons = {
-}
-att.Desc_Neutrals = {
-}
-att.Slot = "uc_myt_scar_stock"
-att.ActivateElements = {"stock_folded"}
-att.AutoStats = true
-att.SortOrder = 65
-att.Free = true
-
-att.Mult_Sway = 1.25
-
-att.Mult_SightedSpeedMult = 1.1
-att.Mult_ShootSpeedMult = 1.1
-att.Mult_RecoilSide = 1.5
-att.Add_BarrelLength = -4
-
-ArcCW.LoadAttachmentType(att, "uc_myt_scar_stock_folded")
-
+ArcCW.LoadAttachmentType(att, "uc_myt_fal_stock_fold")
 
 
 
 local att = {}
 
 -- Barrels ---------------------------------------------------------
-att.PrintName = "20\" LB Barrel"
+att.PrintName = "20\" Wood Barrel"
 att.Icon = Material("entities/att/ue_scar/u_rail.png", "smooth mips")
-att.Description = "Extended barrel with added railling."
+att.Description = "Extended barrel with added wood. Bayonetta"
 att.Desc_Pros = {
 }
 att.Desc_Cons = {
 }
 att.Desc_Neutrals = {
 }
-att.Slot = "uc_myt_scar_hg"
+att.Slot = "uc_myt_fal_hg"
 
 att.AutoStats = true
 att.SortOrder = 20
