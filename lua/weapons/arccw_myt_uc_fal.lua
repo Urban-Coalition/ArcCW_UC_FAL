@@ -450,11 +450,10 @@ SWEP.Animations = {
         LHIKEaseOut = 0.3,
         LHIKOut = 0.7,
         SoundTable = {
-            {s = common .. "raise.ogg", t = 0},
-            {s = common .. "rattle.ogg", t = 0.2},
-            {s = path .. "chpull.ogg",   t = 0.15},
-            {s = common .. "cloth_4.ogg",  t = 0.5},
-            {s = path .. "chrelease.ogg",  t = 0.5},
+            {s = rottle, 			                    t = 0/40},
+            {s = path .. "chback.ogg", 		            t = 3/40},
+            {s = path .. "chforward.ogg", 		        t = 18/40},
+            {s = common .. "shoulder.ogg",              t = 38/40, v = 0.5},
         },
     },  
     ["draw"] = {
