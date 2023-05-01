@@ -662,6 +662,11 @@ SWEP.Animations = {
         SoundTable = {
         },
     },
+
+    ["bash"] = { Source = "stab", }, 
+	["bash_empty"] = { Source = "stab_emp", },
+	["bash_bayo"] = { Source = "stab", },
+	["bash_empty_bayo"] = { Source = "stab_emp", },
 }
 
 

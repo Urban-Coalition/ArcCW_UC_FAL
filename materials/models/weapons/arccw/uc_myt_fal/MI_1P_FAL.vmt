@@ -21,6 +21,8 @@
 	"$rimlightboost"			"3" // float -- rimlight intensity coefficient
 	"$rimlightexponent"			"33" // float -- rimlight exponent
 
+	$nocull = 1
+
 // envmap (convar: mat_specular "bool")
 	"$envmap"					"env_cubemap" // string -- path to envmap or envmap entity name
 	"$envmaptint"				"[.001 .001 .001]" // vector -- rgb tinting of the envmap: all dimentions should be equal, ideally

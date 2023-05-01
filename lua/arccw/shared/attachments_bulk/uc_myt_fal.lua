@@ -219,6 +219,11 @@ att.Mult_Sway = 1.2
 att.Add_BarrelLength = 5
 att.Mult_PhysBulletMuzzleVelocity = 0.8
 
+
+att.Hook_SelectBashAnim = function(wep, anim)
+    return anim .. "_bayo"
+end
+
 att.ActivateElements = {"hg_wood"}
 ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_l")
 ---------------------------------------------------------------------------------------------------------------------
