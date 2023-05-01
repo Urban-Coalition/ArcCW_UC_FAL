@@ -264,7 +264,7 @@ SWEP.AttachmentElements = {
 	VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 3}, },
 	},
 	["x_40"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 2}, }, },
-	["c_30"] = { NameChange = "Trudeau", VMBodygroups = { {ind = 4, bg = 2}, {ind = 2, bg = 1}, },	 },
+	["c_30"] = { NameChange = [[Trudeau <3]], VMBodygroups = { {ind = 4, bg = 2}, {ind = 2, bg = 1}, },	 },
 
 	["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5} }, },
 	["hg_cqc"] = { VMBodygroups = { {ind = 1, bg = 4}, {ind = 9, bg = 4} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 17.1) },} },
@@ -731,6 +731,71 @@ SWEP.Animations = {
 	["bash_empty"] = { Source = "stab_emp", },
 	["bash_bayo"] = { Source = "stab", },
 	["bash_empty_bayo"] = { Source = "stab_emp", },
+	
+    ["enter_inspect"] = {
+        Source = "inspect_enter",
+        LHIK = true,
+        LHIKIn = 0.2,
+        LHIKOut = 0,
+        SoundTable = {
+            {s = rottle, t = 0},
+            {s = common .. "movement-rifle-02.ogg", t = 0.1},
+        },
+    },
+    ["idle_inspect"] = {
+        Source = "inspect_loop",
+        LHIK = true,
+        LHIKIn = 0,
+        LHIKOut = 0,
+    },
+    ["exit_inspect"] = {
+        Source = "inspect_exit",
+        LHIK = true,
+        LHIKIn = 0,
+        LHIKEaseOut = 0.375,
+        LHIKOut = 0.6,
+        SoundTable = {
+            {s = rottle, 			                    t = 0/40},
+            {s = "weapons/uc_osk/magout.ogg", 			t = 20/40},
+            {s = rottle, 			                    t = 17/40},
+            {s = "weapons/uc_osk/struggle.ogg", 		t = 60/40},
+            {s = "weapons/uc_osk/magin.ogg", 			t = 70/40},
+            {s = rottle, 			                    t = 69/40},
+            {s = common .. "shoulder.ogg", 	        	t = 88/40, v = .5},
+        },
+    },
+    ["enter_inspect_empty"] = {
+        Source = "inspect_enter_empty",
+        LHIK = true,
+        LHIKIn = 0.2,
+        LHIKOut = 0,
+        SoundTable = {
+            {s = rottle, t = 0},
+            {s = common .. "movement-rifle-02.ogg", t = 0.1},
+        },
+    },
+    ["idle_inspect_empty"] = {
+        Source = "inspect_loop_empty",
+        LHIK = true,
+        LHIKIn = 0,
+        LHIKOut = 0,
+    },
+    ["exit_inspect_empty"] = {
+        Source = "inspect_exit_empty",
+        LHIK = true,
+        LHIKIn = 0,
+        LHIKEaseOut = 0.375,
+        LHIKOut = 0.6,
+        SoundTable = {
+            {s = rottle, 			                    t = 0/40},
+            {s = "weapons/uc_osk/magout.ogg", 			t = 20/40},
+            {s = rottle, 			                    t = 17/40},
+            {s = "weapons/uc_osk/struggle.ogg", 		t = 60/40},
+            {s = "weapons/uc_osk/magin.ogg", 			t = 70/40},
+            {s = rottle, 			                    t = 69/40},
+            {s = common .. "shoulder.ogg", 	        	t = 88/40, v = .5},
+        },
+    },	
 }
 
 
