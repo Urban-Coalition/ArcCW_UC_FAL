@@ -5,10 +5,10 @@ SWEP.UC_CategoryPack = "5Urban One-offs"
 SWEP.AdminOnly = false
 
 SWEP.PrintName = "Aurolaroix C1"
-SWEP.TrueName = "FAL"
+SWEP.TrueName = "C1A1"
 
 SWEP.Trivia_Class = "Battle Rifle"
-SWEP.Trivia_Desc = [[Shipped back from Départment du Nord, a land of constant snowstorm prohibits the use of conventional magazine. Take either 10 or 5 round load to fill up this machine.]]
+SWEP.Trivia_Desc = [[Shipped back from Départment du Nord, a land of constant snowstorm prohibits the use of conventional magazine. Conserve your ammo and take either 10 or 5 round load to fill up this machine.]]
 SWEP.Trivia_Manufacturer = [[Héristal van Hoog-Zert [Département du Nord] ]]
 SWEP.Trivia_Calibre = "7.62x51mm NATO"
 SWEP.Trivia_Mechanism = "Gas-Operated Tilting Bolt"
@@ -204,10 +204,6 @@ SWEP.UC_ShellColor = Color(0.7*255, 0.2*255, 0.2*255)
 SWEP.MuzzleEffectAttachment = 1 -- which attachment to put the muzzle on
 SWEP.CaseEffectAttachment = 2 -- which attachment to put the case effect on
 
-SWEP.BulletBones = {
-    --[1] = "tag_mag2",
-}
-
 SWEP.IronSightStruct = {
     Pos = Vector(-2.73, -1, 0.8),
     Ang = Angle(0, 0.02, 0),
@@ -240,8 +236,8 @@ SWEP.HolsterAng = Angle(-15, 8, -10)
 SWEP.BarrelOffsetSighted = Vector(0, 0, 0)
 SWEP.BarrelOffsetHip = Vector(0, 0, 0)
 
-SWEP.CustomizePos = Vector(10.5, 4, 1)
-SWEP.CustomizeAng = Angle(8, 30, 15)
+SWEP.CustomizePos = Vector(0, 0, 0)
+SWEP.CustomizeAng = Angle(0, 0, 0)
 
 SWEP.BarrelLength = 24
 
@@ -266,7 +262,7 @@ SWEP.AttachmentElements = {
     ["x_40"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 2}, }, },
     ["c_30"] = { NameChange = [[Trudeau <3]], VMBodygroups = { {ind = 4, bg = 2}, {ind = 2, bg = 1}, },	 },
 
-    ["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5} }, },
+    ["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5}, },	AttPosMods = {[4] = { vpos = Vector(0, 0.925, 8.6) },} },
     ["hg_cqc"] = { VMBodygroups = { {ind = 1, bg = 4}, {ind = 9, bg = 4} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 17.1) },} },
     ["hg_para"] = { VMBodygroups = { {ind = 1, bg = 2}, },	AttPosMods = {[4] = { vpos = Vector(0, 1.45, 7) },} },
     ["hg_xs"] = { VMBodygroups = { {ind = 1, bg = 1}, {ind = 9, bg = 1} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 14.5) }, [4] = { vpos = Vector(0, 0.85, 7) },} },
@@ -277,8 +273,9 @@ SWEP.Hook_ModifyBodygroups = function(wep, data)
     local vm = data.vm
     local handguard = wep.Attachments[2].Installed
     if wep.Attachments[4].Installed then
-        if (handguard == "uc_myt_fal_hg_xs") or (handguard == "uc_myt_scar_hg_sd") then vm:SetBodygroup(10, 0)
+        if handguard == "uc_myt_fal_hg_xs" then vm:SetBodygroup(10, 0)
             elseif handguard == "uc_myt_fal_hg_para" then vm:SetBodygroup(10, 2)
+            elseif handguard == "uc_myt_fal_hg_l" then vm:SetBodygroup(10, 3)
             else   vm:SetBodygroup(10, 1)
         end
     end
@@ -313,7 +310,7 @@ SWEP.Attachments = {
     },
     {
         PrintName = "Barrel",
-        DefaultAttName = "14\" Standard Barrel",
+        DefaultAttName = "21\" Standard Barrel",
         Slot = "uc_myt_fal_hg",
         Bone = "W_Main",
         Offset = {
@@ -548,10 +545,10 @@ SWEP.Animations = {
         MinProgress = 132/40,
         LastClip1OutTime = 58/40,
         LHIK = true,
-        LHIKIn = 4.15,
-        LHIKEaseIn = 0.4,
+        LHIKIn = 4.275,
+        LHIKEaseIn = 0.35,
         LHIKEaseOut = 0.3,
-        LHIKOut = 0.5,
+        LHIKOut = 0.7,
         SoundTable = {
             {s = rottle,  t = 0.0},
             {s = path .. "chback.ogg", t = 5/30, v = 1.95},
@@ -580,10 +577,10 @@ SWEP.Animations = {
         MinProgress = 273/40,
         LastClip1OutTime = 58/40,
         LHIK = true,
-        LHIKIn = 7.8,
+        LHIKIn = 7.9,
         LHIKEaseIn = 0.4,
         LHIKEaseOut = 0.3,
-        LHIKOut = 0.5,
+        LHIKOut = 0.7,
         SoundTable = {
             {s = rottle,  t = 0.0},
             {s = path .. "chback.ogg", t = 6/30, v = 1.95},
@@ -774,11 +771,6 @@ SWEP.Animations = {
         LHIKOut = 0.6,
         SoundTable = {
             {s = rottle, 			                    t = 0/40},
-            {s = path .. "magout.ogg", 			t = 20/40},
-            {s = rottle, 			                    t = 17/40},
-            {s = path .. "struggle.ogg", 		t = 60/40},
-            {s = path .. "magin.ogg", 			t = 70/40},
-            {s = rottle, 			                    t = 69/40},
             {s = common .. "shoulder.ogg", 	        	t = 88/40, v = .5},
         },
     },
@@ -806,11 +798,6 @@ SWEP.Animations = {
         LHIKOut = 0.6,
         SoundTable = {
             {s = rottle, 			                    t = 0/40},
-            {s = path .. "magout.ogg", 			t = 20/40},
-            {s = rottle, 			                    t = 17/40},
-            {s = path .. "struggle.ogg", 		t = 60/40},
-            {s = path .. "magin.ogg", 			t = 70/40},
-            {s = rottle, 			                    t = 69/40},
             {s = common .. "shoulder.ogg", 	        	t = 88/40, v = .5},
         },
     },

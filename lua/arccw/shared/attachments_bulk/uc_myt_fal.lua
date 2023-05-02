@@ -261,7 +261,9 @@ att.Mult_Sway = 1.2
 
 att.Add_BarrelLength = 5
 att.Mult_PhysBulletMuzzleVelocity = 0.8
-
+att.Mult_MeleeDamage = 2.5
+att.Add_MeleeRange = 16
+att.Mult_MeleeAttackTime = 1.2
 
 att.Hook_SelectBashAnim = function(wep, anim)
     return anim .. "_bayo"
@@ -312,7 +314,7 @@ ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_aus")
 ---------------------------------------------------------------------------------------------------------------------
 local att = {}
 
-att.PrintName = "20\" PARA Barrel"
+att.PrintName = "21\" PARA Barrel"
 att.Icon = Material("entities/att/ue_fal/hg_para.png", "smooth mips")
 att.Description = "Semi Wood."
 att.Desc_Pros = {
@@ -341,7 +343,7 @@ ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_para")
 ---------------------------------------------------------------------------------------------------------------------
 local att = {}
 
-att.PrintName = "12\" CQC Barrel"
+att.PrintName = "16\" CQC Barrel"
 att.Icon = Material("entities/att/ue_fal/hg_short.png", "smooth mips")
 att.Description = "Circumsized."
 att.Desc_Pros = {
@@ -366,7 +368,7 @@ att.Mult_AccuracyMOA = 2.5
 att.Mult_Range = 0.35
 att.Mult_Sway = 0.7
 
-att.Add_BarrelLength = -10
+att.Add_BarrelLength = -12
 att.Mult_PhysBulletMuzzleVelocity = 0.65
 
 att.ActivateElements = {"hg_cqc", "hg_short"}
@@ -374,9 +376,9 @@ ArcCW.LoadAttachmentType(att, "uc_myt_fal_hg_cqc")
 ---------------------------------------------------------------------------------------------------------------------
 local att = {}
 
-att.PrintName = "6.5\" DSA Barrel"
+att.PrintName = "14\" DSA Barrel"
 att.Icon = Material("entities/att/ue_fal/hg_dsa.png", "smooth mips")
-att.Description = "Shoot your finger off with this one trick."
+att.Description = "Carbine configuration for paratrooper."
 att.Desc_Pros = {
 }
 att.Desc_Cons = {
@@ -393,13 +395,13 @@ att.Mult_SpeedMult = 1.025
 att.Mult_SightedSpeedMult = 1.1
 att.Mult_HipDispersion = 0.7
 
-att.Mult_RPM = 1.1
-att.Mult_Recoil = 1.25
-att.Mult_AccuracyMOA = 1.5
-att.Mult_Range = 0.75
-att.Mult_Sway = 0.8
+att.Mult_RPM = 1.15
+att.Mult_Recoil = 1.5
+att.Mult_AccuracyMOA = 2
+att.Mult_Range = 0.5
+att.Mult_Sway = 0.75
 
-att.Add_BarrelLength = -6
+att.Add_BarrelLength = -8
 att.Mult_PhysBulletMuzzleVelocity = 0.729167
 
 att.ActivateElements = {"hg_xs", "hg_short"}
