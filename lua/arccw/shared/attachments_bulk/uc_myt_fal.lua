@@ -295,9 +295,9 @@ att.Mult_HipDispersion = 1.125
 att.LHIK = true
 att.LHIK_Priority = -20
 att.Model = "models/weapons/arccw/c_uc_myt_fal.mdl"
-att.ModelBodygroups = "1741222503"
+att.ModelBodygroups = "17412224030"
 att.DroppedModel = "models/items/boxsrounds.mdl"
-att.ModelOffset = (Vector(0.41, 0, -1.63) - Vector(7, -0.75, 1))
+att.ModelOffset = (Vector(0.41, 0, -1.63) - Vector(7, -0.4, 1.5))
 att.GivesFlags = {"fal_noub"}
 
 att.Mult_Recoil = 0.75

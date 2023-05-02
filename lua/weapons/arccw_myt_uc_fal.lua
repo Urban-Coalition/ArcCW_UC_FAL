@@ -681,8 +681,8 @@ SWEP.Animations = {
         LHIKIn = 0.3,
         LHIKOut = 0.5,
         LHIKEaseOut = 0.25,
-        MinProgress = 2.1,
-        LastClip1OutTime = 50/30,
+        MinProgress = 100/40,
+        LastClip1OutTime = 50/40,
         SoundTable = {
         },
     },
@@ -694,7 +694,7 @@ SWEP.Animations = {
         LHIKOut = 0.5,
         LHIKEaseOut = 0.25,
         MinProgress = 2.1,
-        LastClip1OutTime = 50/30,
+        LastClip1OutTime = 50/40,
         SoundTable = {
         },
     },
@@ -707,7 +707,7 @@ SWEP.Animations = {
         LHIKOut = 0.5,
         LHIKEaseOut = 0.25,
         MinProgress = 2.1,
-        LastClip1OutTime = 50/30,
+        LastClip1OutTime = 50/40,
         SoundTable = {
             {s = rottle, 			                    t = 0/40},
             {s = path .. "magout.ogg", 			        t = 3/40},
