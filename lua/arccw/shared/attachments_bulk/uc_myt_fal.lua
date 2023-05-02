@@ -202,34 +202,6 @@ att.ToggleStats = {
 }
 
 ArcCW.LoadAttachmentType(att, "uc_myt_fal_stock_fold")
----------------------------------------------------------------------------------------------------------------------
-local att = {}
-
-att.PrintName = "CQC Stock"
-att.Icon = Material("entities/att/ue_fal/s_imbel.png", "smooth mips")
-att.Description = "Guh?"
-att.Desc_Pros = {
-}
-att.Desc_Cons = {
-}
-att.Desc_Neutrals = {
-}
-att.Ignore = false
-att.Slot = "uc_myt_fal_stock"
-att.ActivateElements = {"stock_imballs"}
-
-att.AutoStats = true
-att.SortOrder = 4
-
-att.Add_BarrelLength = 0
-att.Mult_Sway = 1.5
-att.Mult_HipDispersion = 1.25
-att.Mult_MoveDispersion = 1.2
-att.Mult_SightTime = 0.75
-att.Mult_Recoil = 1.25
-att.Mult_Sway = 1.5
-
-ArcCW.LoadAttachmentType(att, "uc_myt_fal_stock_imballs")
 
 local att = {}
 ---------------------------------------------------------------------------------------------------------------------
@@ -425,5 +397,5 @@ att.Slot = "uc_myt_fal_grip"
 
 att.AutoStats = true
 
-att.ActivateElements = {"grip_flat"}
-ArcCW.LoadAttachmentType(att, "uc_myt_fal_grip_imbel")
+att.ActivateElements = {"grip_para"}
+ArcCW.LoadAttachmentType(att, "uc_myt_fal_grip_para")

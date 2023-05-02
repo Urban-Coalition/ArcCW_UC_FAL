@@ -255,6 +255,8 @@ SWEP.AttachmentElements = {
     ["stock_foldf"] = { VMBodygroups = { {ind = 7, bg = 2}, }, },
     ["stock_imballs"] = { VMBodygroups = { {ind = 7, bg = 3}, }, },
 
+    ["grip_para"] = { VMBodygroups = { {ind = 6, bg = 1}, }, },
+
     ["conv_556"] = {
     NameChange = "Relicosseur I2",
     TrueNameChange = "IMBEL-A2",
@@ -273,7 +275,7 @@ SWEP.AttachmentElements = {
 SWEP.Hook_ModifyBodygroups = function(wep, data)
     local vm = data.vm
     local handguard = wep.Attachments[2].Installed
-    if wep.Attachments[4].Installed then
+    if wep.Attachments[4].Installed || wep.Attachments[14].Installed then
         if handguard == "uc_myt_fal_hg_xs" then vm:SetBodygroup(10, 0)
             elseif handguard == "uc_myt_fal_hg_para" then vm:SetBodygroup(10, 2)
             elseif handguard == "uc_myt_fal_hg_l" then vm:SetBodygroup(10, 3)
@@ -307,7 +309,7 @@ SWEP.Attachments = {
             vpos = Vector(-0, -1.6, -5),
             vang = Angle(90, 0, -90),
         },
-        MergeSlots = {15},
+        MergeSlots = {16},
     },
     {
         PrintName = "Barrel",
@@ -339,7 +341,7 @@ SWEP.Attachments = {
         },
         InstalledEles = {"mount_underbarrel"},
         ExcludeFlags = {"fal_noub"},
-        MergeSlots = {13},
+        MergeSlots = {14},
     },
     {
         PrintName = "Tactical",
@@ -352,10 +354,16 @@ SWEP.Attachments = {
         InstalledEles = {"mount_tactical"},
     },
     {
+        PrintName = "Grip Type",
+        Slot = {"uc_myt_fal_grip"},
+		Hidden = true,
+        DefaultAttName = "Standard Grip",
+    },
+    {
         PrintName = "Stock",
         Slot = {"uc_myt_fal_stock"},
         DefaultAttName = "Standard Stock",
-        MergeSlots = {14},
+        MergeSlots = {15},
     },
     {
         PrintName = "Magazine",
@@ -399,10 +407,11 @@ SWEP.Attachments = {
         Slot = "uc_ubgl",
         Bone = "W_Main",
         Offset = {
-            vpos = Vector(0, 0.1, 6.9), -- this is also changed by ModifyBodygroups
+            vpos = Vector(0, -0.1, 5), -- this is also changed by ModifyBodygroups
             vang = Angle(90, 0, -90),
         },
         Hidden = true,
+        ExcludeFlags = {"fal_noub"},
         InstalledEles = {"mount_underbarrel"},
     },
 
@@ -426,7 +435,7 @@ SWEP.Attachments = {
         Bone = "W_Main",
         VMScale = Vector(1, 1, 1),
         Offset = {
-            vpos = Vector(-0, -1.6, -5),
+            vpos = Vector(0, -1.6, -5),
             vang = Angle(90, 0, -90),
         },
     },
@@ -810,9 +819,9 @@ SWEP.Hook_SelectInsertAnimation = function(wep, data)
     if !wep:HasInfiniteAmmo() then
         insertAmt = math.min(insertAmt, wep:GetOwner():GetAmmoCount(wep:GetPrimaryAmmoType()))
     end
-    if !wep.Attachments[15].Installed and insertAmt >= 10 then
+    if !wep.Attachments[16].Installed and insertAmt >= 10 then
         return {count = 10, anim = "sgreload_insert_10", empty = false}
-    elseif !wep.Attachments[15].Installed and insertAmt >= 5 then
+    elseif !wep.Attachments[16].Installed and insertAmt >= 5 then
         return {count = 5, anim = "sgreload_insert_5", empty = false}
     end
 end
