@@ -114,6 +114,7 @@ SWEP.HeatDelayTime = 3
 -- SWEP.Malfunction = true
 SWEP.MalfunctionMean = 200
 --SWEP.MeleeTime = 1.5
+SWEP.MeleeAttackTime = 0.1
 
 -- Speed multipliers --
 
@@ -236,7 +237,7 @@ SWEP.HolsterAng = Angle(-15, 8, -10)
 SWEP.BarrelOffsetSighted = Vector(0, 0, 0)
 SWEP.BarrelOffsetHip = Vector(0, 0, 0)
 
-SWEP.CustomizePos = Vector(0, 0, 0)
+SWEP.CustomizePos = Vector(0, 2, 1)
 SWEP.CustomizeAng = Angle(0, 0, 0)
 
 SWEP.BarrelLength = 24
@@ -249,7 +250,7 @@ SWEP.BulletBones = {
 SWEP.AttachmentElements = {
     ["o_rail"] = { VMBodygroups = { {ind = 8, bg = 1}, }, },
 
-    ["stock_tube"] = { VMBodygroups = { {ind = 7, bg = 4}, }, },
+    ["stock_tube"] = { VMBodygroups = { {ind = 7, bg = 3}, }, },
     ["stock_fold"] = { VMBodygroups = { {ind = 7, bg = 1}, }, },
     ["stock_foldf"] = { VMBodygroups = { {ind = 7, bg = 2}, }, },
     ["stock_imballs"] = { VMBodygroups = { {ind = 7, bg = 3}, }, },
@@ -385,7 +386,7 @@ SWEP.Attachments = {
     },
     {
         PrintName = "Charm",
-        Slot = {"charm", "fml_charm", "mp5_charm"},
+        Slot = {"charm", "fml_charm"},
         FreeSlot = true,
         Bone = "body",
         Offset = {
