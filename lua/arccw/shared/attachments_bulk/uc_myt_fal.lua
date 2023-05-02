@@ -107,12 +107,12 @@ att.AutoStats = true
 att.HideIfBlocked = true
 
 att.Override_Malfunction = true
-att.Mult_MalfunctionMean = 0.005 -- LOL
+att.Mult_MalfunctionMean = 0.0075 -- LOL
 att.Mult_MalfunctionVariance = 1.75
 
 att.Mult_Penetration = 0.1
-att.Mult_DamageMin = 0.5
-att.Mult_Damage = 0.25
+att.Mult_DamageMin = 0.75
+att.Mult_Damage = 0.5
 att.Mult_Range = 0.1
 
 att.Override_ClipSize = 30
@@ -235,7 +235,7 @@ local att = {}
 ---------------------------------------------------------------------------------------------------------------------
 -- Barrels ----------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
-att.PrintName = "20\" Wood Barrel"
+att.PrintName = "24\" Wood Barrel"
 att.Icon = Material("entities/att/ue_fal/hg_wood.png", "smooth mips")
 att.Description = "Extended barrel with added wood. Bayonetta"
 att.Desc_Pros = {

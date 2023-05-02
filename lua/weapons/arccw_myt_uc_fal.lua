@@ -262,7 +262,7 @@ SWEP.AttachmentElements = {
     ["x_40"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 2}, }, },
     ["c_30"] = { NameChange = [[Trudeau <3]], VMBodygroups = { {ind = 4, bg = 2}, {ind = 2, bg = 1}, },	 },
 
-    ["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5}, },	AttPosMods = {[4] = { vpos = Vector(0, 0.925, 8.6) },} },
+    ["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5}, {ind = 9, bg = 3} },	AttPosMods = {[4] = { vpos = Vector(0, 0.925, 8.6) },} },
     ["hg_cqc"] = { VMBodygroups = { {ind = 1, bg = 4}, {ind = 9, bg = 4} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 17.1) },} },
     ["hg_para"] = { VMBodygroups = { {ind = 1, bg = 2}, },	AttPosMods = {[4] = { vpos = Vector(0, 1.45, 7) },} },
     ["hg_xs"] = { VMBodygroups = { {ind = 1, bg = 1}, {ind = 9, bg = 1} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 14.5) }, [4] = { vpos = Vector(0, 0.85, 7) },} },
