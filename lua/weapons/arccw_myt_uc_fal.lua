@@ -245,45 +245,45 @@ SWEP.CustomizeAng = Angle(8, 30, 15)
 
 SWEP.BarrelLength = 24
 
-SWEP.BulletBones = { 
+SWEP.BulletBones = {
     [0] = "b_wpn_mag_b1",
-	[1] = "b_wpn_mag_b1"
+    [1] = "b_wpn_mag_b1"
 }
 
 SWEP.AttachmentElements = {
-	["o_rail"] = { VMBodygroups = { {ind = 8, bg = 1}, }, },
+    ["o_rail"] = { VMBodygroups = { {ind = 8, bg = 1}, }, },
 
-	["stock_tube"] = { VMBodygroups = { {ind = 7, bg = 4}, }, },
-	["stock_fold"] = { VMBodygroups = { {ind = 7, bg = 1}, }, },
-	["stock_foldf"] = { VMBodygroups = { {ind = 7, bg = 2}, }, },
-	["stock_imballs"] = { VMBodygroups = { {ind = 7, bg = 3}, }, },
+    ["stock_tube"] = { VMBodygroups = { {ind = 7, bg = 4}, }, },
+    ["stock_fold"] = { VMBodygroups = { {ind = 7, bg = 1}, }, },
+    ["stock_foldf"] = { VMBodygroups = { {ind = 7, bg = 2}, }, },
+    ["stock_imballs"] = { VMBodygroups = { {ind = 7, bg = 3}, }, },
 
-	["conv_556"] = {
-	NameChange = "Relicosseur I2",
-	TrueNameChange = "IMBEL-A2",
-	VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 3}, },
-	},
-	["x_40"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 2}, }, },
-	["c_30"] = { NameChange = [[Trudeau <3]], VMBodygroups = { {ind = 4, bg = 2}, {ind = 2, bg = 1}, },	 },
+    ["conv_556"] = {
+    NameChange = "Relicosseur I2",
+    TrueNameChange = "IMBEL-A2",
+    VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 3}, },
+    },
+    ["x_40"] = { VMBodygroups = { {ind = 5, bg = 1}, {ind = 2, bg = 2}, }, },
+    ["c_30"] = { NameChange = [[Trudeau <3]], VMBodygroups = { {ind = 4, bg = 2}, {ind = 2, bg = 1}, },	 },
 
-	["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5} }, },
-	["hg_cqc"] = { VMBodygroups = { {ind = 1, bg = 4}, {ind = 9, bg = 4} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 17.1) },} },
-	["hg_para"] = { VMBodygroups = { {ind = 1, bg = 2}, },	AttPosMods = {[4] = { vpos = Vector(0, 1.45, 7) },} },
-	["hg_xs"] = { VMBodygroups = { {ind = 1, bg = 1}, {ind = 9, bg = 1} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 14.5) }, [4] = { vpos = Vector(0, 0.85, 7) },} },
-	["hg_aus"] = { VMBodygroups = { {ind = 1, bg = 6}, {ind = 9, bg = 5} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 25.25) },} },
+    ["hg_wood"] = { VMBodygroups = { {ind = 1, bg = 5} }, },
+    ["hg_cqc"] = { VMBodygroups = { {ind = 1, bg = 4}, {ind = 9, bg = 4} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 17.1) },} },
+    ["hg_para"] = { VMBodygroups = { {ind = 1, bg = 2}, },	AttPosMods = {[4] = { vpos = Vector(0, 1.45, 7) },} },
+    ["hg_xs"] = { VMBodygroups = { {ind = 1, bg = 1}, {ind = 9, bg = 1} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 14.5) }, [4] = { vpos = Vector(0, 0.85, 7) },} },
+    ["hg_aus"] = { VMBodygroups = { {ind = 1, bg = 6}, {ind = 9, bg = 5} },	AttPosMods = {[3] = { vpos = Vector(0, 0, 25.25) },} },
 }
 
 SWEP.Hook_ModifyBodygroups = function(wep, data)
-	local vm = data.vm
-	local handguard = wep.Attachments[2].Installed
-	if wep.Attachments[4].Installed then 
-        if (handguard == "uc_myt_fal_hg_xs") || (handguard == "uc_myt_scar_hg_sd") then vm:SetBodygroup(10, 0) 
-			elseif handguard == "uc_myt_fal_hg_para" then vm:SetBodygroup(10, 2)
-			else   vm:SetBodygroup(10, 1) 
-		end
-	end
+    local vm = data.vm
+    local handguard = wep.Attachments[2].Installed
+    if wep.Attachments[4].Installed then
+        if (handguard == "uc_myt_fal_hg_xs") or (handguard == "uc_myt_scar_hg_sd") then vm:SetBodygroup(10, 0)
+            elseif handguard == "uc_myt_fal_hg_para" then vm:SetBodygroup(10, 2)
+            else   vm:SetBodygroup(10, 1)
+        end
+    end
 
-	if wep.Attachments[3].Installed then vm:SetBodygroup(9, 3) end	
+    if wep.Attachments[3].Installed then vm:SetBodygroup(9, 3) end
 end
 
 SWEP.ExtraSightDist = 2
@@ -407,7 +407,7 @@ SWEP.Attachments = {
         Hidden = true,
         InstalledEles = {"mount_underbarrel"},
     },
-	
+
     {	--14--
         PrintName = "Tube Stock Adaptor",
         Slot = {"go_stock"},
@@ -455,7 +455,7 @@ SWEP.Animations = {
             {s = path .. "chforward.ogg", 		        t = 18/40},
             {s = common .. "shoulder.ogg",              t = 38/40, v = 0.5},
         },
-    },  
+    },
     ["draw"] = {
         Source = "draw",
         SoundTable = {
@@ -488,7 +488,7 @@ SWEP.Animations = {
             {s = path .. "chrelease.ogg",  t = 32/40},
         },
         ProcDraw = false,
-    },	
+    },
     ["holster"] = {
         Source = "holster",
         LHIK = false,
@@ -517,8 +517,8 @@ SWEP.Animations = {
         Source = "fire",
         ShellEjectAt = 0.01,
         SoundTable = {{ s = mech, t = 0, v = 0.25 }},
-    },  
-	["fire_iron"] = {
+    },
+    ["fire_iron"] = {
         Source = "fire",
         ShellEjectAt = 0.01,
         SoundTable = {
@@ -533,15 +533,15 @@ SWEP.Animations = {
             {s = common .. "common_mech_light.ogg", t = 0},
             {s = path .. "mech_last.ogg", t = 0}, -- Temporary
         },
-    }, 
-	["fire_iron_empty"] = {
+    },
+    ["fire_iron_empty"] = {
         Source = "fire_empty",
         ShellEjectAt = 0.01,
         SoundTable = {
             {s = common .. "common_mech_light.ogg", t = 0},
             {s = path .. "mech_last.ogg", t = 0}, -- Temporary
         },
-	},
+    },
     ["reload_empty"] = {
         Source = "reload_empty",
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
@@ -605,7 +605,7 @@ SWEP.Animations = {
             {s = common .. "shoulder.ogg", t = 93/30},
         },
     },
-	
+
     ["sgreload_start"] = {
         Source = "sgreload_start",
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_SHOTGUN,
@@ -634,7 +634,7 @@ SWEP.Animations = {
     },
     ["sgreload_insert_5"] = {
         Source = "sgreload_insert_5",
-		RestoreAmmo = 5,
+        RestoreAmmo = 5,
         MinProgress = 0.24,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_SHOTGUN,
         TPAnimStartTime = 0.3,
@@ -648,7 +648,7 @@ SWEP.Animations = {
     },
     ["sgreload_insert_10"] = {
         Source = "sgreload_insert_10",
-		RestoreAmmo = 10,
+        RestoreAmmo = 10,
         MinProgress = 0.24,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_SHOTGUN,
         TPAnimStartTime = 0.3,
@@ -745,11 +745,11 @@ SWEP.Animations = {
         },
     },
 
-    ["bash"] = { Source = "stab", }, 
-	["bash_empty"] = { Source = "stab_emp", },
-	["bash_bayo"] = { Source = "stab", },
-	["bash_empty_bayo"] = { Source = "stab_emp", },
-	
+    ["bash"] = { Source = "stab", },
+    ["bash_empty"] = { Source = "stab_emp", },
+    ["bash_bayo"] = { Source = "stab", },
+    ["bash_empty_bayo"] = { Source = "stab_emp", },
+
     ["enter_inspect"] = {
         Source = "inspect_enter",
         LHIK = true,
@@ -813,19 +813,20 @@ SWEP.Animations = {
             {s = rottle, 			                    t = 69/40},
             {s = common .. "shoulder.ogg", 	        	t = 88/40, v = .5},
         },
-    },	
+    },
 }
 
 
 SWEP.Hook_SelectInsertAnimation = function(wep, data)
-    local insertAmt = math.min(wep.Primary.ClipSize + wep:GetChamberSize() - wep:Clip1(), wep:GetOwner():GetAmmoCount(wep.Primary.Ammo), 20) -- that 20 probably doesnt mean anything
-    local anim = "sgreload_insert_" .. insertAmt
-
-	if !wep.Attachments[15].Installed and insertAmt >= 10 then
-		return {count = 10, anim = "sgreload_insert_10", empty = false}
-	elseif !wep.Attachments[15].Installed and insertAmt >= 5 then
-		return {count = 5, anim = "sgreload_insert_5", empty = false}
-	end
+    local insertAmt = wep:HasBottomlessClip() and math.huge or math.min(wep:GetCapacity() + wep:GetChamberSize() - wep:Clip1())
+    if !wep:HasInfiniteAmmo() then
+        insertAmt = math.min(insertAmt, wep:GetOwner():GetAmmoCount(wep:GetPrimaryAmmoType()))
+    end
+    if !wep.Attachments[15].Installed and insertAmt >= 10 then
+        return {count = 10, anim = "sgreload_insert_10", empty = false}
+    elseif !wep.Attachments[15].Installed and insertAmt >= 5 then
+        return {count = 5, anim = "sgreload_insert_5", empty = false}
+    end
 end
 
 SWEP.Hook_Think = ArcCW.UC.ADSReload
